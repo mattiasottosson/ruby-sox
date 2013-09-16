@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Sox do
+describe Sox::Cmd do
   let(:sox) { described_class.new }
 
   describe '.new' do
@@ -77,15 +77,15 @@ describe Sox do
     it 'should build command with CommandBuilder and run it' do
       sox = described_class.new('a.mp3', :combine => :mix)
 
-      command_builder = stub(:command_builder, :build => "shell_command")
+      command_builder = double(:command_builder, :build => "shell_command")
 
       Sox::CommandBuilder.should_receive(:new).
-        with(['a.mp3'], 'out.mp3', :combine => :mix).
+        with(['a.mp3'], 'out.mp3', {:combine => :mix}, :rate => '8k').
         and_return(command_builder)
 
       sox.should_receive(:run_command).with("shell_command")
 
-      sox.write('out.mp3')
+      sox.write('out.mp3', :rate => '8k')
     end
   end
 end

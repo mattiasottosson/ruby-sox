@@ -26,6 +26,22 @@ describe Sox::CommandBuilder do
           'sox --combine mix-power --sox-pipe in1.mp3 in2.mp3 out.ogg'
       end
     end
+
+    context 'with effects' do
+      it 'should pass effects after output file' do
+        builder = described_class.new(['in1.mp3', 'in2.mp3'], 'out.ogg', {}, :rate => '16k', :channels => 2)
+        builder.build.should ==
+          'sox in1.mp3 in2.mp3 out.ogg rate 16k channels 2'
+      end
+    end
+
+    context 'with options and effects' do
+      it 'should build command' do
+        builder = described_class.new(['in'], 'out', {:combine => :mix}, :rate => 44100)
+        builder.build.should ==
+          'sox --combine mix in out rate 44100'
+      end
+    end
   end
 
   describe 'shellify_opt' do

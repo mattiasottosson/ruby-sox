@@ -2,9 +2,7 @@ require 'shellwords'
 require 'open3'
 require 'tempfile'
 
-
 # Wrapper around +sox+ command line tool.
-#
 module Sox
   # Basic Sox error
   class Error < StandardError
@@ -13,7 +11,6 @@ module Sox
   # Sox command
   SOX_COMMAND = 'sox'.freeze
 end
-
 
 require 'sox/file'
 require 'sox/shell'

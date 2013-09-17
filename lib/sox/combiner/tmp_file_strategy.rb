@@ -23,8 +23,7 @@ module Sox
         sh(cmd)
       end
 
-      cmd = build_output_cmd(tmp_files, output_file)
-
+      cmd = build_output_command(tmp_files, output_file)
       sh(cmd)
     ensure
       # Remove temporary files
@@ -52,7 +51,7 @@ module Sox
       builder = CommandBuilder.new(inputs, output, output_options, output_effects)
       builder.build
     end
-    private :build_convert_command
+    private :build_output_command
 
     # Build shell command which converts input file into temporary file with
     # desired rate and channels.

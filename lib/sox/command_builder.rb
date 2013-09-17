@@ -34,12 +34,19 @@ module Sox
     end
 
 
+    # Build input files with their options
+    #
+    # @return [Array<String>]
     def build_input_files
       @input_files.map { |file| build_file(file) }
     end
     private :build_input_files
 
-
+    # Build part of sox command which represents file(input or output)
+    #
+    # @param file [Sox::File] file
+    #
+    # @return [String]
     def build_file(file)
       opts = build_options(file.options)
       file_path = file.escaped? ? file.path : Shellwords.escape(file.path)
@@ -49,24 +56,31 @@ module Sox
 
     # Build options with their values (if present) to be used in shell command.
     #
-    # @retrun [Array<String>] options
+    # @param options [Hash] options
+    #
+    # @return [Array<String>] options to be concatenated into string
     def build_options(options)
-      result = []
-      options.each do |opt, val|
-        result << "--#{shellify_opt(opt)}"
-        result << shellify_opt(val) if [String, Symbol, Fixnum].include?(val.class)
+      options.inject([]) do |result, (opt, val)|
+        if val
+          result << "--#{shellify_opt(opt)}"
+          result << shellify_opt(val) unless val.is_a?(TrueClass)
+        end
+        result
       end
-      result
     end
     private :build_options
 
+    # Build effects with their arguments (if present) to be used in shell command.
+    #
+    # @return [Array<String>] effects to be concatenated into string
     def build_effects
-      result = []
-      @effects.each do |effect, val|
-        result << effect
-        result << val if [String, Symbol, Fixnum].include?(val.class)
+      @effects.inject([]) do |result, (effect, val)|
+        if val
+          result << effect
+          result << val.to_s unless val.is_a?(TrueClass)
+        end
+        result
       end
-      result
     end
     private :build_effects
 
@@ -74,7 +88,7 @@ module Sox
     #
     # @param value [Symbol, String] option or value
     #
-    # @retrun [String] shellified option
+    # @return [String] shellified option
     def shellify_opt(value)
       value.to_s.gsub('_', '-')
     end

@@ -54,10 +54,16 @@ module Sox
       opts           = DEFAULT_OPTIONS.merge(options)
       strategy_name  = opts.delete(:strategy)
       strategy_class = STRATEGIES[strategy_name]
-      raise(ArgumentError, "Unknown strategy #{strategy_name.inspect}") if strategy_class
+      raise(ArgumentError, "Unknown strategy #{strategy_name.inspect}") unless strategy_class
+
       @strategy      = strategy_class.new(input_files, opts)
     end
 
+    # Run +sox+ command and write output to file
+    #
+    # @param output_file [String] path of output file
+    #
+    # @return [void]
     def write(output_file)
       @strategy.write(output_file)
     end

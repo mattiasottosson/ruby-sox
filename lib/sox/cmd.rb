@@ -27,7 +27,7 @@ module Sox
     # @param file_path [String] path to file
     # @param input_options [Hash] options for input files, see +man sox+
     #
-    # @retrun [void]
+    # @return [void]
     def add_input(file_path, input_options = {})
       @inputs << Sox::File.new(file_path, input_options)
     end
@@ -37,7 +37,7 @@ module Sox
     # @param file_path [String] ouput file path
     # @param output_options [Hash] options for output file, see +man sox+
     #
-    # @retrun [void]
+    # @return [void]
     def set_output(file_path, output_options = {})
       @output = Sox::File.new(file_path, output_options)
     end

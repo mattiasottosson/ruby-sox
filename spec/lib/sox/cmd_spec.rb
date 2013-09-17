@@ -4,88 +4,94 @@ describe Sox::Cmd do
   let(:sox) { described_class.new }
 
   describe '.new' do
-    context 'nothing is passed' do
-      it 'should keep input files and options empty' do
-        sox = described_class.new
-        sox.input_files.should == []
-        sox.options.should == {}
-      end
-    end
-
-    context 'input files are passed' do
-      it 'should set input files' do
-        sox = described_class.new('a.mp3', 'b.mp3')
-        sox.input_files.should == ['a.mp3', 'b.mp3']
-      end
+    it 'should initialize empty properties' do
+      sox.inputs.should == []
+      sox.output.should be_nil
+      sox.options.should == {}
+      sox.effects.should == {}
     end
 
     context 'options are passed' do
       it 'should set options' do
-        sox = described_class.new(:combine => :concatenate)
-        sox.options.should == {:combine => :concatenate}
-      end
-    end
+        sox = described_class.new(:combine => :mix, :guard => true)
 
-    context 'input files and options are passed' do
-      it 'should set input files and options' do
-        sox = described_class.new('a.mp3', 'b.mp3', :guard => true, :combine => :mix)
-        sox.input_files.should == ['a.mp3', 'b.mp3']
-        sox.options.should == {:guard => true, :combine => :mix}
+        sox.options[:combine].should == :mix
+        sox.options[:guard].should be_true
       end
     end
   end
 
-  describe '#add_input_files' do
-    it 'should add input_files' do
-      sox.add_input_files 'a.mp3', 'b.mp3'
-      sox.add_input_files ['c.mp3']
-      sox.input_files.should == ['a.mp3', 'b.mp3', 'c.mp3']
-    end
+  describe '#add_input' do
+    it 'should add input file' do
+      sox.add_input('a.mp3')
+      sox.add_input('b.wav', :type => :wav)
 
-    it "should have alias <<" do
-      sox << "a.ogg"
-      sox << ["b.ogg", "c.ogg"]
-      sox.input_files.should == ['a.ogg', 'b.ogg', 'c.ogg']
-    end
-  end
+      sox.should have(2).inputs
+      a, b = sox.inputs
 
-  describe '#run_command' do
-    context "command is not found" do
-      it 'should raise Sox::Error' do
-        expect {
-          sox.send(:run_command, 'never-command')
-        }.to raise_error(Sox::Error, /Do you have `sox' installed\?/)
-      end
-    end
+      a.should be_a Sox::File
+      a.path.should    == 'a.mp3'
+      a.options.should == {}
 
-    context "command failed" do
-      it 'should raise Sox::Error with error info' do
-        expect {
-          sox.send(:run_command, "sox never-file.mp3 output.ogg")
-        }.to raise_error(Sox::Error, /can't open input file `never-file\.mp3'/)
-      end
-    end
-
-    context "command finished successfully" do
-      it "should return true" do
-        sox.send(:run_command, "echo sweet").should be_true
-      end
+      b.should be_a Sox::File
+      b.path.should    == 'b.wav'
+      b.options.should == {:type => :wav}
     end
   end
 
-  describe '#write' do
-    it 'should build command with CommandBuilder and run it' do
-      sox = described_class.new('a.mp3', :combine => :mix)
+  describe '#set_output' do
+    it 'should set output file' do
+      sox.set_output('out.raw', :bits => 16)
 
-      command_builder = double(:command_builder, :build => "shell_command")
+      output = sox.output
+      output.should be_a Sox::File
+      output.path.should == 'out.raw'
+      output.options.should == {:bits => 16}
+    end
+  end
+
+  describe '#set_effects' do
+    it 'should set effects' do
+      sox.set_effects(:norm => true, :channels => 1)
+      sox.effects.should == {:norm => true, :channels => 1}
+    end
+  end
+
+  describe '#set_options' do
+    it 'should set options' do
+      sox.set_options(:combine => :concatenate)
+      sox.options.should == {:combine => :concatenate}
+    end
+  end
+
+  describe '#run' do
+    it 'should raise if inputs are missing' do
+      sox.set_output('out.mp3')
+      expect { sox.run }.
+        to raise_error(Sox::Error, "Inputs are missing, specify them with `add_input`")
+    end
+
+    it 'should raise if output is missing' do
+      sox.add_input('in.mp3')
+      expect { sox.run }.
+        to raise_error(Sox::Error, "Output is missing, specify it with `set_output`")
+    end
+
+    it 'should build sox command and run it via shell' do
+      sox.add_input('in.mp3')
+      sox.set_output('out.mp3')
+      sox.set_options(:combine => :mix)
+      sox.set_effects(:norm => true)
+
+      builder = double(:builder, :build => "sox blabla")
 
       Sox::CommandBuilder.should_receive(:new).
-        with(['a.mp3'], 'out.mp3', {:combine => :mix}, :rate => '8k').
-        and_return(command_builder)
+        with(sox.inputs, sox.output, sox.options, sox.effects).
+        and_return(builder)
 
-      sox.should_receive(:run_command).with("shell_command")
+      sox.should_receive(:sh).with("sox blabla")
 
-      sox.write('out.mp3', :rate => '8k')
+      sox.run
     end
   end
 end

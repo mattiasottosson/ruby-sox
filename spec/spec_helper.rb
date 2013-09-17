@@ -18,4 +18,8 @@ RSpec.configure do |config|
   def output_fixture(file)
     File.join(FIXTURES_PATH, 'output', file)
   end
+
+  def gen_tmp_filename(ext = 'mp3')
+    Dir::Tmpname.make_tmpname ['/tmp/ruby-sox-test', ".#{ext}"], nil
+  end
 end

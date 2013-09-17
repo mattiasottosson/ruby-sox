@@ -12,12 +12,7 @@ require 'benchmark'
 #
 #   --sergey.potapov 2013-09-13
 shared_examples_for "combiner" do |options|
-
   strategy = options[:strategy]
-
-  def gen_tmp_filename(ext = 'mp3')
-    Dir::Tmpname.make_tmpname ['/tmp/ruby-sox-test', ".#{ext}"], nil
-  end
 
   # Input fixtures
   let(:drums_input)   { input_fixture('drums_128kb.mp3')          }

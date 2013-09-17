@@ -2,65 +2,80 @@ module Sox
   # Process audio files using +sox+ shell command.
   #
   # @example
-  #   # Concatenate files 3 mp3 files and write result in +output.ogg+.
-  #   sox = Sox::Cmd.new("in1.mp3", "in2.mp3", "in3.mp3", {:combine => :concatenate}, :rate => '8k')
-  #   sox.write("output.ogg")
+  #   # Mix 3 files into one
+  #   sox = Sox::Cmd.new(:combine => :mix)
+  #   sox.add_input("guitar1.flac")
+  #   sox.add_input("guitar2.flac")
+  #   sox.add_input("drums.flac")
+  #   sox.set_output("hell_rock-n-roll.mp3")
+  #   sox.set_effects(:rate => 44100, :channels => 2)
+  #   sox.run
   class Cmd
-    attr_accessor :input_files, :options, :effects
+    include Sox::Shell
 
-    # @overload new(options = {})
-    #   @param options [Hash] options for +sox+ tool
-    #
-    # @overload new(in1, in2, options = {})
-    #   @param in1 [String] path to input audio file
-    #   @param in2 [String] path to input audio file
-    #   @param options [Hash] options for +sox+ tool
-    def initialize(*files_and_opts)
-      @global_options = files_and_opts.last.is_a?(Hash) ? files_and_opts.pop : {}
-      @input_files    = files_and_opts
+    attr_reader :options, :inputs, :output, :effects
+
+    # @param options [Hash] global options for sox command
+    def initialize(options = {})
+      @options = options
+      @inputs  = []
+      @effects = {}
     end
 
-    # Add input file(s) to be processed.
+    # Add input file with its options.
     #
-    # @param files [String, Array] file or array of files
+    # @param file_path [String] path to file
+    # @param input_options [Hash] options for input files, see +man sox+
     #
     # @retrun [void]
-    def add_input_files(*files)
-      @input_files.concat(files.flatten)
-    end
-    alias :<< :add_input_files
-
-    # Run +sox+ command and write the result into output the file.
-    #
-    # @param filename [String] output file
-    # @param effects [Hash] effects to apply on the output file
-    #
-    # @return [Boolean] true if succeed, otherwise {Sox::Error} is raised
-    def write(output_file, effects = {})
-      command = CommandBuilder.new(@input_files, output_file, @options, effects).build
-      run_command(command)
+    def add_input(file_path, input_options = {})
+      @inputs << Sox::File.new(file_path, input_options)
     end
 
-    # Run shell command which is supposed to be +sox+.
-    # Raise {Sox::Error} if fail.
+    # Set output file and its options.
     #
-    # @param command [String] shell command to be executed
+    # @param file_path [String] ouput file path
+    # @param output_options [Hash] options for output file, see +man sox+
     #
-    # @return [Boolean] true in case of success, otherwise {Sox::Error} is raised
-    def run_command(command)
-      _, _, err_io, thread = Open3.popen3(command)
-      thread.join
-
-      process_status = thread.value
-      if process_status.success?
-        true
-      else
-        raise Error, err_io.read
-      end
-    rescue Errno::ENOENT => err
-      msg = "#{err.message}. Do you have `#{SOX_COMMAND}' installed?"
-      raise Error, msg
+    # @retrun [void]
+    def set_output(file_path, output_options = {})
+      @output = Sox::File.new(file_path, output_options)
     end
-    private :run_command
+
+    # Set effects on output file. See +man sox+ section +EFFECTS+.
+    # It receives effect name as a hash key and effect arguments as hash value
+    # which can be a string or an array of strings. If an effect has no
+    # arguments just pass +true+ as value.
+    #
+    # @example
+    #   # Normalize and use 2 channels for output
+    #   sox_cmd.set_effects(:channels => 2, :norm => true)
+    #
+    # @param effects [Hash{Symbol, String => Symbol, String, Array<String>}]
+    #
+    # @return [void]
+    def set_effects(effects)
+      @effects = effects
+    end
+
+    # Set global options. See +man sox+ section +Global Options+.
+    #
+    # @param options [Hash] global options for +sox+ command
+    #
+    # @return [void]
+    def set_options(options)
+      @options = options
+    end
+
+    # Run `sox` command. Raise {Sox::Error} on fail.
+    #
+    # @return [Boolean] true in case of success
+    def run
+      raise(Sox::Error, "Output is missing, specify it with `set_output`") unless @output
+      raise(Sox::Error, "Inputs are missing, specify them with `add_input`")    if @inputs.empty?
+
+      cmd = CommandBuilder.new(@inputs, @output, @options, @effects).build
+      sh(cmd)
+    end
   end
 end

@@ -14,6 +14,12 @@ Ruby wrapper for `sox` command line tool to process sound.
 apt-get install sox
 ```
 
+### Mac
+
+```
+brew install sox
+```
+
 # Usage
 
 First at all it's a wrapper for `sox` to provide Ruby API.

@@ -8,7 +8,6 @@ module Sox
   #   )
   #   builder.build  # => "sox --combine mix in1.mp3 in2.ogg out.wav rate 44100 channels 2"
   class CommandBuilder
-
     attr_accessor :input_files, :output_file, :options, :effects
 
     # @param input_files [Array<Sox::File>]

@@ -11,14 +11,29 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 FIXTURES_PATH = File.expand_path('../integration/fixtures', __FILE__)
 
 RSpec.configure do |config|
+  # Build path to input fixture
+  #
+  # @param file [String] filename
+  #
+  # @return [String] full path to fixture in +input+ dir
   def input_fixture(file)
     File.join(FIXTURES_PATH, 'input', file)
   end
 
+  # Build path to output fixture
+  #
+  # @param file [String] filename
+  #
+  # @return [String] full path to fixture in +output+ dir
   def output_fixture(file)
     File.join(FIXTURES_PATH, 'output', file)
   end
 
+  # Generate filename for temporary file.
+  #
+  # @param ext [String] file extension
+  #
+  # @return [String] filename
   def gen_tmp_filename(ext = 'mp3')
     Dir::Tmpname.make_tmpname ['/tmp/ruby-sox-test', ".#{ext}"], nil
   end

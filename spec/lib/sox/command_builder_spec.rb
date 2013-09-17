@@ -3,48 +3,35 @@ require 'spec_helper'
 describe Sox::CommandBuilder do
   describe '#build' do
     it 'should build sox command' do
-      builder = described_class.new(['in1.mp3', 'in2.ogg', 'in3.flac'], 'out.wav')
-      builder.build.should == "sox in1.mp3 in2.ogg in3.flac out.wav"
+      in1 = Sox::File.new('in1.mp3', :type => :mp3)
+      in2 = Sox::File.new('in2.raw', :type => :raw, :bits => 16, :encoding => :signed)
+      out = Sox::File.new('out.raw', :encoding => :signed, :bits => 32)
+      builder = described_class.new([in1, in2], out, {:combine => :mix}, :rate => 22050)
+
+      builder.build.should ==
+        'sox --combine mix --type mp3 in1.mp3 --type raw --bits 16 --encoding signed in2.raw ' \
+        '--encoding signed --bits 32 out.raw rate 22050'
     end
 
     it 'should escape fancy characters in file names' do
-      builder = described_class.new(['in 1".mp3', 'in`2.ogg'], "out'.wav")
-      builder.build.should == %q{sox in\ 1\".mp3 in\`2.ogg out\'.wav}
+      in1 = Sox::File.new('in 1".mp3')
+      out = Sox::File.new("out'.wav")
+      builder = described_class.new([in1], out)
+
+      builder.build.should == %q{sox in\ 1\".mp3 out\'.wav}
     end
 
-    context 'with options' do
-      it 'should add pass options to the command' do
-        builder = described_class.new(['in1.mp3', 'in2.mp3'], 'out.ogg', :combine => :mix)
-        builder.build.should == 'sox --combine mix in1.mp3 in2.mp3 out.ogg'
-      end
 
-      it 'should use apply "-" syntax for options' do
-        opts = {:combine => :mix_power, :sox_pipe => true}
-        builder = described_class.new(['in1.mp3', 'in2.mp3'], 'out.ogg', opts)
+    it 'should use apply "-" syntax for options' do
+      in1 = Sox::File.new('in1.mp3')
+      out = Sox::File.new("out.wav")
+      builder = described_class.new([in1], out, :combine => :mix_power)
 
-        builder.build.should ==
-          'sox --combine mix-power --sox-pipe in1.mp3 in2.mp3 out.ogg'
-      end
-    end
-
-    context 'with effects' do
-      it 'should pass effects after output file' do
-        builder = described_class.new(['in1.mp3', 'in2.mp3'], 'out.ogg', {}, :rate => '16k', :channels => 2)
-        builder.build.should ==
-          'sox in1.mp3 in2.mp3 out.ogg rate 16k channels 2'
-      end
-    end
-
-    context 'with options and effects' do
-      it 'should build command' do
-        builder = described_class.new(['in'], 'out', {:combine => :mix}, :rate => 44100)
-        builder.build.should ==
-          'sox --combine mix in out rate 44100'
-      end
+      builder.build.should == 'sox --combine mix-power in1.mp3 out.wav'
     end
   end
 
-  describe 'shellify_opt' do
+  describe '#shellify_opt' do
     it 'should take Symbol or String and replace "_" with "-"' do
       builder = described_class.new([], '', {})
 

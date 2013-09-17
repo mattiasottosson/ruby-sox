@@ -58,7 +58,7 @@ module Sox
         raise Error, err_io.read
       end
     rescue Errno::ENOENT => err
-      msg = "#{err.message}. Do you have `#{SHELL_COMMAND}' installed?"
+      msg = "#{err.message}. Do you have `#{SOX_COMMAND}' installed?"
       raise Error, msg
     end
     private :run_command

@@ -11,10 +11,12 @@ module Sox
   end
 
   # Sox command
-  SHELL_COMMAND = 'sox'.freeze
+  SOX_COMMAND = 'sox'.freeze
 end
 
 
+require 'sox/file'
+require 'sox/shell'
 require 'sox/command_builder'
 require 'sox/cmd'
 require 'sox/combiner'

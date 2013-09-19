@@ -10,7 +10,7 @@ module Sox
       @options     = options
     end
 
-    # Run command saving output in the output file.
+    # Run the command, and save output in the output file.
     #
     # @param output_file [String]
     #

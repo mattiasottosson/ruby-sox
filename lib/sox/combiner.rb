@@ -1,7 +1,8 @@
 module Sox
-  # Combine input files. Technically it calls +sox+ with +--combine+ option,
-  # but allows you do not care about rate and number of channels in input files,
-  # it converts to same rate/channels using temporary mediate files.
+  # Combines input files. Technically it calls +sox+ with +--combine+ option,
+  # but allows you not to care about the rates and numbers of channels in the
+  # input files. It converts them to the same rates/channels using temporary
+  # mediate files.
   #
   # @example
   #   # Concatenate
@@ -24,10 +25,11 @@ module Sox
       # Rate(samples per seconds) of the output file.
       :rate => 22050,
 
-      # Apply norm effect on output
+      # Apply norm effect on output.
       :normalize => false,
 
-      # Strategy to convert input files into files with same rate and channels
+      # Strategy to convert input files into files with the same rates
+      # and channels.
       :strategy => :process_substitution
     }
 
@@ -59,7 +61,7 @@ module Sox
       @strategy      = strategy_class.new(input_files, opts)
     end
 
-    # Run +sox+ command and write output to file
+    # Run +sox+ command and write output to file.
     #
     # @param output_file [String] path of output file
     #

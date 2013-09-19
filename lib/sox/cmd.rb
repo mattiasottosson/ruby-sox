@@ -1,5 +1,5 @@
 module Sox
-  # Process audio files using +sox+ shell command.
+  # Process audio files using the +sox+ shell command.
   #
   # @example
   #   # Mix 3 files into one
@@ -42,10 +42,10 @@ module Sox
       @output = Sox::File.new(file_path, output_options)
     end
 
-    # Set effects on output file. See +man sox+ section +EFFECTS+.
-    # It receives effect name as a hash key and effect arguments as hash value
-    # which can be a string or an array of strings. If an effect has no
-    # arguments just pass +true+ as value.
+    # Set effects on the output file. See +man sox+ section +EFFECTS+.
+    # It receives the effect name as a hash key and the effect arguments as
+    # hash values which can be a string or an array of strings. If an effect
+    # has no arguments just pass +true+ as the value.
     #
     # @example
     #   # Normalize and use 2 channels for output
@@ -71,8 +71,8 @@ module Sox
     #
     # @return [Boolean] true in case of success
     def run
-      raise(Sox::Error, "Output is missing, specify it with `set_output`") unless @output
-      raise(Sox::Error, "Inputs are missing, specify them with `add_input`")    if @inputs.empty?
+      raise(Sox::Error, "Output is missing, specify it with `set_output`")   unless @output
+      raise(Sox::Error, "Inputs are missing, specify them with `add_input`") if @inputs.empty?
 
       cmd = CommandBuilder.new(@inputs, @output, @options, @effects).build
       sh(cmd)

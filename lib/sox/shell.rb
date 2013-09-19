@@ -1,18 +1,18 @@
 module Sox
-  # Provides methods to run command in /bin/sh and /bin/bash interpreters.
-  # Usual `system` method runs /bin/sh which doesn't support process substitution
-  # feature. So sometime we need to use bash with process substitution in order
-  # to avoid disk IO operations.
+  # Provides methods to run the command in the +/bin/sh+ and +/bin/bash+
+  # interpreters. Ruby's `system` method runs +/bin/sh+ which doesn't support
+  # the process substitution feature. So sometimes we need to use bash with
+  # process substitution in order to avoid disk IO operations.
   #
-  # Also this module takes care of error handling and raises {Sox::Error} in case of
-  # failure message returned by shell command.
+  # Also this module takes care of error handling and raises {Sox::Error} when
+  # a failure message is returned by the shell command.
   #
   # See http://en.wikipedia.org/wiki/Process_substitution
   module Shell
-    # Path to bash interpreter
+    # Path to the +bash+ interpreter:
     BASH_PATH = '/bin/bash'
 
-    # Run shell command.
+    # Run a shell command.
     #
     # @param command [String] shell command to execute
     #

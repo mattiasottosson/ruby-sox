@@ -1,21 +1,21 @@
 module Sox
   # Combines files using process substitution to build and use mediate files.
-  # Process substitution is not supported by shell, so we need to pass
-  # the final command to bash via shell.
+  # Process substitution is not supported by the standard shell, so we need
+  # to pass the final command to bash via shell.
   #
   # Read more about process substitution:
   # http://en.wikipedia.org/wiki/Process_substitution
   class Combiner::ProcessSubstitutionStrategy < Combiner::BaseStrategy
-    # Type of mediate files
+    # Type of mediate files:
     MEDIATE_TYPE = :sox
 
-    # Number of bits for mediate files
+    # Number of bits for mediate files:
     MEDIATE_BITS = 32
 
-    # Encoding of mediate files
+    # Encoding of mediate files:
     MEDIATE_ENCODING = :signed
 
-    # Pseudo file which makes `sox` command write to output to stdout.
+    # Pseudo file which makes the `sox` command write to output to stdout:
     SOX_PIPE = '-p'
 
     # :nodoc:
@@ -28,7 +28,8 @@ module Sox
     end
 
 
-    # Build input file which can be used in the command builder to get final output.
+    # Build the input file which can be used in the command builder to get
+    # the final output.
     #
     # @param file_path [String] path to input file
     #
@@ -44,8 +45,8 @@ module Sox
     end
     private :build_input_file
 
-    # Build shell statement which can be used as input file with the needed
-    # rate and number of channels.
+    # Build the shell statement which can be used as the input file with
+    # the needed rate and number of channels.
     #
     # @param input_file [String]
     #

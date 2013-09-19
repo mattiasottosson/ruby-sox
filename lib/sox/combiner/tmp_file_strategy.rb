@@ -1,13 +1,13 @@
 module Sox
-  # Combines fails using temporary files as mediate files.
+  # Combines files using temporary files as mediate files.
   class Combiner::TmpFileStrategy < Combiner::BaseStrategy
-    # Type of temporary mediate files
+    # Type of temporary mediate files:
     MEDIATE_TYPE = :raw
 
-    # Number of bits for temporary mediate files
+    # Number of bits for temporary mediate files:
     MEDIATE_BITS = 16
 
-    # Encoding of temporary mediate files
+    # Encoding of temporary mediate files:
     MEDIATE_ENCODING = :signed
 
 
@@ -30,7 +30,7 @@ module Sox
       tmp_files.each { |file| FileUtils.rm(file) if ::File.exists?(file) }
     end
 
-    # Build +sox+ command to get final output
+    # Build +sox+ command to get final output.
     #
     # @param input_files [Array<String>]
     # @param output_file [String]

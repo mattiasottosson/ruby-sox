@@ -2,7 +2,7 @@ RSpec::Matchers.define :have_rate do |expected_rate|
   match do |file_path|
     @file_path = file_path
 
-    # Get rate of audio file using soxi tool
+    # Get rate of audio file using soxi tool:
     @actual_rate = (%x"soxi -r #{file_path}").to_i
     @actual_rate == expected_rate.to_i
   end

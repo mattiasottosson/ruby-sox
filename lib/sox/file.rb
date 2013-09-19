@@ -1,5 +1,5 @@
 module Sox
-  # Represents input or output file with its options for `sox` command.
+  # Represents input or output file with its options for the `sox` command.
   class File
     # Path to file or whatever.
     attr_reader :path

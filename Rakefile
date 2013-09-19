@@ -14,13 +14,13 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "ruby-sox"
-  gem.homepage = "http://github.com/greyblake/ruby-sox"
-  gem.license = "MIT"
-  gem.summary = %Q{Wrapper around sox sound tool}
+  gem.name        = "ruby-sox"
+  gem.homepage    = "http://github.com/greyblake/ruby-sox"
+  gem.license     = "MIT"
+  gem.summary     = %Q{Wrapper around sox sound tool}
   gem.description = %Q{Wrapper around sox sound tool}
-  gem.email = "blake131313@gmail.com"
-  gem.authors = ["Potapov Sergey"]
+  gem.email       = "blake131313@gmail.com"
+  gem.authors     = ["Potapov Sergey"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

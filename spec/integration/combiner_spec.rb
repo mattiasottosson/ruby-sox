@@ -33,7 +33,11 @@ shared_examples_for "combiner" do |options|
 
       it 'should concatenate should write output with 2 channels' do
         files = [drums_input, guitar1_input, guitar2_input, guitar3_input]
-        combiner = Sox::Combiner.new(files, :combine => :concatenate, :channels => 2 , :rate => 44100, :strategy => strategy)
+        combiner = Sox::Combiner.new( files,
+                                      :combine  => :concatenate,
+                                      :channels => 2 ,
+                                      :rate     => 44100,
+                                      :strategy => strategy )
         combiner.write(output_file)
 
         File.exists?(output_file).should be_true
@@ -43,7 +47,9 @@ shared_examples_for "combiner" do |options|
 
       it 'should concatenate' do
         files = [drums_input, guitar2_input, guitar3_input]
-        combiner = Sox::Combiner.new(files, :combine => :concatenate, :strategy => strategy)
+        combiner = Sox::Combiner.new( files,
+                                      :combine  => :concatenate,
+                                      :strategy => strategy )
         combiner.write(output_file)
 
         File.exists?(output_file).should be_true
@@ -60,7 +66,9 @@ shared_examples_for "combiner" do |options|
 
       it 'should mix' do
         files = [drums_input, guitar2_input, guitar3_input]
-        combiner = Sox::Combiner.new(files, :combine => :mix, :strategy => strategy)
+        combiner = Sox::Combiner.new( files,
+                                      :combine  => :mix,
+                                      :strategy => strategy )
         combiner.write(output_file)
 
         File.exists?(output_file).should be_true
@@ -70,7 +78,10 @@ shared_examples_for "combiner" do |options|
       context 'with normalization' do
         it 'should mix and normalize' do
           files = [drums_input, guitar2_input, guitar3_input]
-          combiner = Sox::Combiner.new(files, :combine => :mix, :normalize => true, :strategy => strategy)
+          combiner = Sox::Combiner.new( files,
+                                        :combine   => :mix,
+                                        :normalize => true,
+                                        :strategy  => strategy )
           combiner.write(output_file)
 
           File.exists?(output_file).should be_true
@@ -82,7 +93,9 @@ shared_examples_for "combiner" do |options|
 
     context '1 input file' do
       it 'should' do
-        combiner = Sox::Combiner.new([drums_input], :combine => :concatenate, :strategy => strategy)
+        combiner = Sox::Combiner.new( [drums_input],
+                                      :combine  => :concatenate,
+                                      :strategy => strategy )
         combiner.write(output_file)
 
         File.exists?(output_file).should be_true
@@ -93,7 +106,8 @@ shared_examples_for "combiner" do |options|
 
     context 'errors' do
       it 'should raise Sox::Error when input file does not exist' do
-        combiner = Sox::Combiner.new(['/silence.mp3', '/noise.mp3'], :strategy => strategy)
+        combiner = Sox::Combiner.new( ['/silence.mp3', '/noise.mp3'],
+                                      :strategy => strategy )
         expect { combiner.write(output_file) }.
           to raise_error(Sox::Error, %r{can't open input file `/silence.mp3'})
       end
@@ -131,7 +145,11 @@ shared_examples_for "combiner" do |options|
               sum_duration = duration * count
 
               x.report("#{duration}s*#{count}=#{sum_duration}s rate=#{rate}" ) do
-                Sox::Combiner.new(small_input_files, :combine => :concatenate, :rate => rate, :strategy => strategy).write(output_file)
+                Sox::Combiner.new(small_input_files,
+                                  :combine  => :concatenate,
+                                  :rate     => rate,
+                                  :strategy => strategy).
+                              write(output_file)
               end
             end
           end
@@ -139,7 +157,11 @@ shared_examples_for "combiner" do |options|
           # Generate big input files 8s*4 = 32s
           rates.each do |rate|
             file = gen_tmp_filename('mp3')
-            Sox::Combiner.new(input_files, :combine => :concatenate, :rate => rate, :strategy => strategy).write(file)
+            Sox::Combiner.new(input_files,
+                              :combine  => :concatenate,
+                              :rate     => rate,
+                              :strategy => strategy).
+                          write(file)
             big_input_files << file
           end
 
@@ -151,7 +173,11 @@ shared_examples_for "combiner" do |options|
 
             rates.each do |rate|
               x.report("#{duration}s*#{count}=#{sum_duration}s rate=#{rate}" ) do
-                Sox::Combiner.new(big_input_files, :combine => :concatenate, :rate => rate, :strategy => strategy).write(output_file)
+                Sox::Combiner.new(big_input_files,
+                                  :combine  => :concatenate,
+                                  :rate     => rate,
+                                  :strategy => strategy).
+                              write(output_file)
               end
             end
           end

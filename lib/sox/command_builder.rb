@@ -1,5 +1,6 @@
 module Sox
-  # Builds +sox+ shell command from input files, output file, options and effects.
+  # Builds the +sox+ shell command from input files, an output file, options
+  # and effects.
   #
   # @example
   #   builder = Sox::CommandBuilder.new(['in1.mp3', 'in2.ogg'], 'out.wav',
@@ -34,7 +35,7 @@ module Sox
     end
 
 
-    # Build input files with their options
+    # Build input files with their options.
     #
     # @return [Array<String>]
     def build_input_files
@@ -42,7 +43,7 @@ module Sox
     end
     private :build_input_files
 
-    # Build part of sox command which represents file(input or output)
+    # Build part of SoX command which represents file(input or output).
     #
     # @param file [Sox::File] file
     #

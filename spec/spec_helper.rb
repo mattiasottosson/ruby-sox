@@ -17,7 +17,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 FIXTURES_PATH = File.expand_path('../integration/fixtures', __FILE__)
 
 RSpec.configure do |config|
-  # Build path to input fixture
+  # Build path to input fixture.
   #
   # @param file [String] filename
   #
@@ -26,7 +26,7 @@ RSpec.configure do |config|
     File.join(FIXTURES_PATH, 'input', file)
   end
 
-  # Build path to output fixture
+  # Build path to output fixture.
   #
   # @param file [String] filename
   #

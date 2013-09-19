@@ -1,2 +1,2 @@
-require expand_path('../sox', __FILE__)
+require File.expand_path('../sox', __FILE__)
 

@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 group :development do
   gem "bundler", "~> 1.0"
@@ -8,7 +8,13 @@ group :development do
   gem 'guard-rspec'
 end
 
+group :development, :test do
+  # code metrics:
+  gem "metric_fu"
+end
+
 group :test do
   gem "rspec", "~> 2.14.1"
-  gem 'simplecov', :require => false
+  gem 'simplecov'          , :require => false
+  gem 'simplecov-rcov-text', :require => false
 end

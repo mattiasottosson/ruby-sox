@@ -7,19 +7,20 @@ A Ruby wrapper for the `sox` command line tool to process sound.
 
 * SoX
 * Bash (for process substitution combiner strategy)
+* Chromaprint (only to run tests)
 
 ### Debian / Ubuntu
 
 ```bash
-apt-get install sox
+apt-get install sox libchromaprint-dev
 ```
 
 ### Mac
 
 ```bash
 # One of the following
-sudo port install sox
-brew install sox
+sudo port install sox chromaprint
+brew install sox chromaprint
 ```
 
 # Usage

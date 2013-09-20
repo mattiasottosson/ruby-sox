@@ -25,7 +25,7 @@ describe "Sox::Cmd integration" do
     File.exists?(output_file).should be_true
     output_file.should have_rate(44100)
     output_file.should have_channels(2)
-    output_file.should have_same_content_as output_fixture("g2_g3_mixed_r44100_c2.mp3")
+    output_file.should sound_like output_fixture("g2_g3_mixed_r44100_c2.mp3")
   end
 
   it 'should apply chorus effect on drums' do
@@ -39,6 +39,6 @@ describe "Sox::Cmd integration" do
     sox.run
 
     File.exists?(output_file).should be_true
-    output_file.should have_same_content_as output_fixture("drums_chorus.mp3")
+    output_file.should sound_like output_fixture("drums_chorus.mp3")
   end
 end

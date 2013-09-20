@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:TMXCredit/chromaprint.git
+  revision: c48a14f3729dc86e47c9a06dee77e0561bc2f101
+  branch: 12274_chromaprint
+  specs:
+    chromaprint (0.0.0)
+      ffi
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -178,6 +186,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.0)
+  chromaprint!
   guard-rspec
   jeweler (~> 1.8.7)
   metric_fu

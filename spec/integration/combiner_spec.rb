@@ -56,7 +56,7 @@ shared_examples_for "combiner" do |options|
         # Test default options
         output_file.should have_rate(22050)
         output_file.should have_channels(1)
-        output_file.should have_same_content_as output_fixture("#{strategy}/d_g2_g3_concatenated_c1_r22050.flac")
+        output_file.should sound_like output_fixture("d_g2_g3_concatenated_c1_r22050.flac")
       end
     end
 
@@ -72,7 +72,7 @@ shared_examples_for "combiner" do |options|
         combiner.write(output_file)
 
         File.exists?(output_file).should be_true
-        output_file.should have_same_content_as output_fixture("#{strategy}/d_g2_g3_mixed_c1_r22050.mp3")
+        output_file.should sound_like output_fixture("d_g2_g3_mixed_c1_r22050.mp3")
       end
 
       context 'with normalization' do
@@ -85,7 +85,7 @@ shared_examples_for "combiner" do |options|
           combiner.write(output_file)
 
           File.exists?(output_file).should be_true
-          output_file.should have_same_content_as output_fixture("#{strategy}/d_g2_g3_mixed_c1_r22050_norm.mp3")
+          output_file.should sound_like output_fixture("d_g2_g3_mixed_c1_r22050_norm.mp3")
         end
       end
     end
@@ -99,7 +99,7 @@ shared_examples_for "combiner" do |options|
         combiner.write(output_file)
 
         File.exists?(output_file).should be_true
-        output_file.should have_same_content_as output_fixture("#{strategy}/drums.mp3")
+        output_file.should sound_like output_fixture("drums.mp3")
       end
     end
 

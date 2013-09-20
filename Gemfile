@@ -17,4 +17,5 @@ group :test do
   gem "rspec", "~> 2.14.1"
   gem 'simplecov'          , :require => false
   gem 'simplecov-rcov-text', :require => false
+  gem 'chromaprint', :git => 'git@github.com:TMXCredit/chromaprint.git', :branch => '12274_chromaprint'
 end

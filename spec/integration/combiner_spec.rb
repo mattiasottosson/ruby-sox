@@ -1,16 +1,6 @@
 require 'spec_helper'
 require 'benchmark'
 
-# @note
-#   By some unknown reason when we manipulate with stereo
-#   files we don't get same binary output and as result we can't compare it
-#   against prepared fixtures. So let's combine only mono files, but be sure
-#   it sounds as it should when we manipulate stereo files.
-#
-#   File guitar1 is stereo, that's why it's not used when we compare output
-#   against fixtures.
-#
-#   --sergey.potapov 2013-09-13
 shared_examples_for "combiner" do |options|
   strategy = options[:strategy]
 
@@ -31,18 +21,19 @@ shared_examples_for "combiner" do |options|
     describe 'concatenation' do
       let(:output_file) { gen_tmp_filename('flac') }
 
-      it 'should concatenate should write output with 2 channels' do
+      it 'should mix should write output with 2 channels' do
         files = [drums_input, guitar1_input, guitar2_input, guitar3_input]
-        combiner = Sox::Combiner.new( files,
-                                      :combine  => :concatenate,
-                                      :channels => 2 ,
-                                      :rate     => 44100,
-                                      :strategy => strategy )
+        combiner = Sox::Combiner.new(files,
+                                     :combine  => :mix,
+                                     :channels => 2 ,
+                                     :rate     => 44100,
+                                     :strategy => strategy)
         combiner.write(output_file)
 
         File.exists?(output_file).should be_true
         output_file.should have_rate(44100)
         output_file.should have_channels(2)
+        output_file.should sound_like output_fixture("d_g1_g2_g3_mixed_c2_r44100.flac")
       end
 
       it 'should concatenate' do

@@ -7,7 +7,7 @@ shared_examples_for "combiner" do |options|
   # Input fixtures
   let(:drums_input)   { input_fixture('drums_128kb.mp3')          }
   let(:guitar1_input) { input_fixture('guitar1_192kb_stereo.mp3') }
-  let(:guitar2_input) { input_fixture('guitar2.ogg')              }
+  let(:guitar2_input) { input_fixture('guitar2.wav')              }
   let(:guitar3_input) { input_fixture('guitar3.wav')              }
 
   let(:output_file) { gen_tmp_filename('mp3') }

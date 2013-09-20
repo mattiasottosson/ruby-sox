@@ -11,11 +11,11 @@ describe "Sox::Cmd integration" do
 
   it 'should mix 2 input files and convert to output with rate=44100 and 2 channels' do
     # Files with same rate and number of channels
-    in1 = input_fixture('guitar2.ogg')
+    in1 = input_fixture('guitar2.wav')
     in2 = input_fixture('guitar3.wav')
 
     sox = Sox::Cmd.new(:combine => :mix)
-    sox.add_input(in1, :type => :ogg)
+    sox.add_input(in1, :type => :wav)
     sox.add_input(in2, :type => :wav)
     sox.set_output(output_file)
     sox.set_effects(:rate => 44100, :channels => 2)

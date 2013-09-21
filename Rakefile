@@ -13,7 +13,6 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name        = "ruby-sox"
   gem.homepage    = "http://github.com/greyblake/ruby-sox"
   gem.license     = "MIT"
@@ -21,7 +20,10 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Wrapper around sox sound tool}
   gem.email       = "blake131313@gmail.com"
   gem.authors     = ["Potapov Sergey"]
-  # dependencies defined in Gemfile
+
+  gem.files = Dir["lib/**/*"] +
+              Dir['README.markdown'] +
+              Dir['LICENSE.txt']
 end
 Jeweler::RubygemsDotOrgTasks.new
 

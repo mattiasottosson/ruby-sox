@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Potapov Sergey"]
-  s.date = "2013-09-17"
+  s.date = "2013-09-21"
   s.description = "Wrapper around sox sound tool"
   s.email = "blake131313@gmail.com"
   s.extra_rdoc_files = [
@@ -17,16 +17,8 @@ Gem::Specification.new do |s|
     "README.markdown"
   ]
   s.files = [
-    ".document",
-    ".rspec",
-    ".ruby-gemset",
-    ".ruby-version",
-    "Gemfile",
-    "Gemfile.lock",
-    "Guardfile",
     "LICENSE.txt",
     "README.markdown",
-    "Rakefile",
     "lib/ruby-sox.rb",
     "lib/sox.rb",
     "lib/sox/cmd.rb",
@@ -36,37 +28,12 @@ Gem::Specification.new do |s|
     "lib/sox/combiner/tmp_file_strategy.rb",
     "lib/sox/command_builder.rb",
     "lib/sox/file.rb",
-    "lib/sox/shell.rb",
-    "spec/integration/cmd_spec.rb",
-    "spec/integration/combiner_spec.rb",
-    "spec/integration/fixtures/input/drums_128kb.mp3",
-    "spec/integration/fixtures/input/guitar1_192kb_stereo.mp3",
-    "spec/integration/fixtures/input/guitar2.ogg",
-    "spec/integration/fixtures/input/guitar3.wav",
-    "spec/integration/fixtures/output/drums_chorus.mp3",
-    "spec/integration/fixtures/output/g2_g3_mixed_r44100_c2.mp3",
-    "spec/integration/fixtures/output/process_substitution/d_g2_g3_concatenated_c1_r22050.flac",
-    "spec/integration/fixtures/output/process_substitution/d_g2_g3_mixed_c1_r22050.mp3",
-    "spec/integration/fixtures/output/process_substitution/d_g2_g3_mixed_c1_r22050_norm.mp3",
-    "spec/integration/fixtures/output/process_substitution/drums.mp3",
-    "spec/integration/fixtures/output/tmp_file/d_g2_g3_concatenated_c1_r22050.flac",
-    "spec/integration/fixtures/output/tmp_file/d_g2_g3_mixed_c1_r22050.mp3",
-    "spec/integration/fixtures/output/tmp_file/d_g2_g3_mixed_c1_r22050_norm.mp3",
-    "spec/integration/fixtures/output/tmp_file/drums.mp3",
-    "spec/lib/sox/cmd_spec.rb",
-    "spec/lib/sox/combiner/base_strategy_spec.rb",
-    "spec/lib/sox/command_builder_spec.rb",
-    "spec/lib/sox/shell_spec.rb",
-    "spec/lib/sox_spec.rb",
-    "spec/spec_helper.rb",
-    "spec/support/custom_matchers/have_channels.rb",
-    "spec/support/custom_matchers/have_rate.rb",
-    "spec/support/custom_matchers/have_same_content_as.rb"
+    "lib/sox/shell.rb"
   ]
   s.homepage = "http://github.com/greyblake/ruby-sox"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.6"
+  s.rubygems_version = "2.0.3"
   s.summary = "Wrapper around sox sound tool"
 
   if s.respond_to? :specification_version then
@@ -77,17 +44,20 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.7"])
       s.add_development_dependency(%q<yard>, [">= 0"])
       s.add_development_dependency(%q<guard-rspec>, [">= 0"])
+      s.add_development_dependency(%q<metric_fu>, [">= 0"])
     else
       s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.7"])
       s.add_dependency(%q<yard>, [">= 0"])
       s.add_dependency(%q<guard-rspec>, [">= 0"])
+      s.add_dependency(%q<metric_fu>, [">= 0"])
     end
   else
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.7"])
     s.add_dependency(%q<yard>, [">= 0"])
     s.add_dependency(%q<guard-rspec>, [">= 0"])
+    s.add_dependency(%q<metric_fu>, [">= 0"])
   end
 end
 

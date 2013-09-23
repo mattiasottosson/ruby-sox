@@ -19,8 +19,9 @@ apt-get install sox libchromaprint-dev
 
 ```bash
 # One of the following
-sudo port install sox chromaprint
-brew install sox chromaprint
+# Note: chromaprint is not available in MacPorts as of this writing:
+sudo port install sox flac && brew install chromaprint
+brew install sox flac chromaprint
 ```
 
 # Usage

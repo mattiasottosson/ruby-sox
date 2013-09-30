@@ -1,0 +1,1928 @@
+---
+:cane:
+  :total_violations: 30
+  :violations:
+    :line_style:
+    - :line: lib/sox/cmd.rb:74
+      :description: Line is >80 characters (91)
+    - :line: lib/sox/cmd.rb:75
+      :description: Line is >80 characters (94)
+    - :line: lib/sox/combiner/process_substitution_strategy.rb:26
+      :description: Line is >80 characters (84)
+    - :line: lib/sox/combiner/process_substitution_strategy.rb:60
+      :description: Line is >80 characters (94)
+    - :line: lib/sox/combiner/tmp_file_strategy.rb:51
+      :description: Line is >80 characters (82)
+    - :line: lib/sox/combiner/tmp_file_strategy.rb:64
+      :description: Line is >80 characters (91)
+    - :line: lib/sox/combiner/tmp_file_strategy.rb:65
+      :description: Line is >80 characters (84)
+    - :line: lib/sox/combiner.rb:9
+      :description: Line is >80 characters (93)
+    - :line: lib/sox/combiner.rb:15
+      :description: Line is >80 characters (87)
+    - :line: lib/sox/combiner.rb:59
+      :description: Line is >80 characters (93)
+    - :line: lib/sox/command_builder.rb:10
+      :description: Line is >80 characters (91)
+    - :line: lib/sox/command_builder.rb:74
+      :description: Line is >80 characters (82)
+    - :line: spec/integration/cmd_spec.rb:12
+      :description: Line is >80 characters (87)
+    - :line: spec/integration/cmd_spec.rb:28
+      :description: Line is >80 characters (87)
+    - :line: spec/integration/combiner_spec.rb:59
+      :description: Line is >80 characters (113)
+    - :line: spec/integration/combiner_spec.rb:75
+      :description: Line is >80 characters (105)
+    - :line: spec/integration/combiner_spec.rb:88
+      :description: Line is >80 characters (112)
+    - :line: spec/integration/combiner_spec.rb:102
+      :description: Line is >80 characters (87)
+    - :line: spec/integration/combiner_spec.rb:126
+      :description: Line is >80 characters (88)
+    - :line: spec/integration/combiner_spec.rb:147
+      :description: Line is >80 characters (81)
+    - :line: spec/integration/combiner_spec.rb:175
+      :description: Line is >80 characters (81)
+    - :line: spec/integration/combiner_spec.rb:196
+      :description: Line is >80 characters (88)
+    - :line: spec/integration/combiner_spec.rb:197
+      :description: Line is >80 characters (88)
+    - :line: spec/lib/sox/cmd_spec.rb:71
+      :description: Line is >80 characters (87)
+    - :line: spec/lib/sox/cmd_spec.rb:77
+      :description: Line is >80 characters (85)
+    - :line: spec/lib/sox/command_builder_spec.rb:7
+      :description: Line is >80 characters (86)
+    - :line: spec/lib/sox/command_builder_spec.rb:9
+      :description: Line is >80 characters (88)
+    - :line: spec/lib/sox/command_builder_spec.rb:12
+      :description: Line is >80 characters (96)
+    - :line: spec/support/custom_matchers/have_channels.rb:10
+      :description: Line is >80 characters (95)
+    - :line: spec/support/custom_matchers/have_rate.rb:11
+      :description: Line is >80 characters (83)
+:churn:
+  :changes: []
+  :class_churn: []
+  :method_churn: []
+  :changed_files: []
+  :changed_classes: []
+  :changed_methods: []
+:flay:
+  :total_score: '0'
+  :matches: []
+:flog:
+  :total: 192.5980244436921
+  :average: 5.068369064307687
+  :method_containers:
+  - :name: Sox::Shell
+    :path: lib/sox/shell.rb
+    :total_score: 15.992521008713906
+    :highest_score: 13.756453031214116
+    :average_score: 7.996260504356953
+    :methods:
+      Sox::Shell#sh:
+        :operators:
+          :branch: 2.2
+          :assignment: 9.4
+          :popen3: 1.2000000000000002
+          :join: 1.2000000000000002
+          :value: 1.2000000000000002
+          :success?: 1.2000000000000002
+          :read: 1.5000000000000002
+          :raise: 2.4000000000000004
+          :message: 1.1
+        :score: 13.756453031214116
+        :path: lib/sox/shell.rb:20
+      Sox::Shell#bash:
+        :operators:
+          :assignment: 1.0
+          :escape: 1.0
+          :sh: 1.0
+        :score: 2.23606797749979
+        :path: lib/sox/shell.rb:40
+  - :name: Sox::Combiner::TmpFileStrategy
+    :path: lib/sox/combiner/tmp_file_strategy.rb
+    :total_score: 34.67338643648371
+    :highest_score: 13.134686901483416
+    :average_score: 6.934677287296742
+    :methods:
+      Sox::Combiner::TmpFileStrategy#write:
+        :operators:
+          :assignment: 4.800000000000001
+          :branch: 3.2
+          :each: 2.1
+          :gen_tmp_filename: 1.3000000000000003
+          :<<: 1.3000000000000003
+          :build_convert_command: 1.3000000000000003
+          :sh: 2.4000000000000004
+          :build_output_command: 1.1
+          :exists?: 1.1
+          :rm: 1.2000000000000002
+        :score: 13.134686901483416
+        :path: lib/sox/combiner/tmp_file_strategy.rb:15
+      Sox::Combiner::TmpFileStrategy#build_output_command:
+        :operators:
+          :assignment: 3.0
+          :branch: 1.0
+          :map: 1.0
+          :[]: 2.6
+          :new: 3.1
+          :output_options: 1.2
+          :output_effects: 1.2
+          :build: 1.0
+        :score: 10.58347768930421
+        :path: lib/sox/combiner/tmp_file_strategy.rb:39
+      Sox::Combiner::TmpFileStrategy#build_convert_command:
+        :operators:
+          :assignment: 2.0
+          :new: 3.4
+          :[]: 2.0
+          :build: 1.0
+        :score: 6.705221845696085
+        :path: lib/sox/combiner/tmp_file_strategy.rb:63
+      Sox::Combiner::TmpFileStrategy#none:
+        :operators:
+          :lit_fixnum: 0.25
+          :private: 3.0
+        :score: 3.25
+        :path: 
+      Sox::Combiner::TmpFileStrategy#gen_tmp_filename:
+        :operators:
+          :make_tmpname: 1.0
+        :score: 1.0
+        :path: lib/sox/combiner/tmp_file_strategy.rb:73
+  - :name: main
+    :path: ''
+    :total_score: 10.999999999999998
+    :highest_score: 10.999999999999998
+    :average_score: 10.999999999999998
+    :methods:
+      main#none:
+        :operators:
+          :expand_path: 1.2
+          :require: 9.799999999999999
+        :score: 10.999999999999998
+        :path: 
+  - :name: Sox::CommandBuilder
+    :path: lib/sox/command_builder.rb
+    :total_score: 51.532852950001555
+    :highest_score: 10.770793842609747
+    :average_score: 6.441606618750194
+    :methods:
+      Sox::CommandBuilder#build_options:
+        :operators:
+          :branch: 3.6000000000000005
+          :inject: 2.0
+          :assignment: 3.3000000000000003
+          :shellify_opt: 3.3000000000000007
+          :<<: 2.900000000000001
+          :is_a?: 1.4000000000000004
+        :score: 10.770793842609747
+        :path: lib/sox/command_builder.rb:63
+      Sox::CommandBuilder#build_effects:
+        :operators:
+          :branch: 3.6000000000000005
+          :inject: 2.0
+          :assignment: 3.3000000000000003
+          :<<: 2.900000000000001
+          :is_a?: 1.4000000000000004
+          :to_s: 1.7000000000000004
+        :score: 9.372833082905085
+        :path: lib/sox/command_builder.rb:77
+      Sox::CommandBuilder#build:
+        :operators:
+          :build_options: 1.4
+          :build_input_files: 1.4
+          :build_file: 1.4
+          :build_effects: 1.4
+          :flatten: 1.2
+          :join: 1.0
+        :score: 7.8
+        :path: lib/sox/command_builder.rb:28
+      Sox::CommandBuilder#build_file:
+        :operators:
+          :assignment: 2.0
+          :options: 1.2
+          :build_options: 1.0
+          :branch: 1.0
+          :escaped?: 1.0
+          :path: 2.4000000000000004
+          :escape: 1.1
+        :score: 7.063285354564122
+        :path: lib/sox/command_builder.rb:51
+      Sox::CommandBuilder#none:
+        :operators:
+          :attr_accessor: 1.0
+          :private: 5.0
+        :score: 6.0
+        :path: 
+      Sox::CommandBuilder#initialize:
+        :operators:
+          :assignment: 6.0
+        :score: 6.0
+        :path: lib/sox/command_builder.rb:18
+      Sox::CommandBuilder#build_input_files:
+        :operators:
+          :branch: 1.0
+          :map: 1.0
+          :build_file: 1.1
+        :score: 2.3259406699226015
+        :path: lib/sox/command_builder.rb:41
+      Sox::CommandBuilder#shellify_opt:
+        :operators:
+          :to_s: 1.2
+          :gsub: 1.0
+        :score: 2.2
+        :path: lib/sox/command_builder.rb:93
+  - :name: Sox::Combiner
+    :path: lib/sox/combiner.rb
+    :total_score: 14.562305898749054
+    :highest_score: 10.062305898749054
+    :average_score: 4.854101966249685
+    :methods:
+      Sox::Combiner#initialize:
+        :operators:
+          :assignment: 5.0
+          :branch: 2.0
+          :empty?: 1.0
+          :raise: 2.2
+          :merge: 1.0
+          :delete: 1.0
+          :[]: 1.0
+          :inspect: 1.3
+          :new: 1.0
+        :score: 10.062305898749054
+        :path: lib/sox/combiner.rb:53
+      Sox::Combiner#none:
+        :operators:
+          :autoload: 3.0
+          :lit_fixnum: 0.5
+        :score: 3.5
+        :path: 
+      Sox::Combiner#write:
+        :operators:
+          :write: 1.0
+        :score: 1.0
+        :path: lib/sox/combiner.rb:69
+  - :name: Sox::Combiner::ProcessSubstitutionStrategy
+    :path: lib/sox/combiner/process_substitution_strategy.rb
+    :total_score: 27.690686912480754
+    :highest_score: 9.633794683301074
+    :average_score: 6.922671728120188
+    :methods:
+      Sox::Combiner::ProcessSubstitutionStrategy#write:
+        :operators:
+          :assignment: 3.0
+          :branch: 1.0
+          :map: 1.0
+          :build_input_file: 1.1
+          :new: 2.2
+          :output_options: 1.4
+          :output_effects: 1.4
+          :build: 1.0
+          :bash: 1.0
+        :score: 9.633794683301074
+        :path: lib/sox/combiner/process_substitution_strategy.rb:22
+      Sox::Combiner::ProcessSubstitutionStrategy#build_converted_input:
+        :operators:
+          :assignment: 4.0
+          :new: 3.2
+          :[]: 2.0
+          :build: 1.0
+          :process_substitution_wrap: 1.0
+        :score: 8.2365041127896
+        :path: lib/sox/combiner/process_substitution_strategy.rb:58
+      Sox::Combiner::ProcessSubstitutionStrategy#build_input_file:
+        :operators:
+          :branch: 1.0
+          :build_converted_input: 1.4
+          :[]: 2.8
+          :new: 1.2
+          :tap: 1.0
+          :assignment: 1.1
+        :score: 6.570388116390081
+        :path: lib/sox/combiner/process_substitution_strategy.rb:37
+      Sox::Combiner::ProcessSubstitutionStrategy#none:
+        :operators:
+          :lit_fixnum: 0.25
+          :private: 3.0
+        :score: 3.25
+        :path: 
+  - :name: Sox::Cmd
+    :path: lib/sox/cmd.rb
+    :total_score: 20.43205767489002
+    :highest_score: 6.779380502671318
+    :average_score: 2.9188653821271457
+    :methods:
+      Sox::Cmd#run:
+        :operators:
+          :branch: 2.0
+          :raise: 2.2
+          :empty?: 1.0
+          :assignment: 1.0
+          :new: 1.2
+          :build: 1.0
+          :sh: 1.0
+        :score: 6.779380502671318
+        :path: lib/sox/cmd.rb:73
+      Sox::Cmd#initialize:
+        :operators:
+          :assignment: 4.0
+        :score: 4.0
+        :path: lib/sox/cmd.rb:19
+      Sox::Cmd#none:
+        :operators:
+          :include: 2.0
+          :attr_reader: 1.0
+        :score: 3.0
+        :path: 
+      Sox::Cmd#add_input:
+        :operators:
+          :assignment: 1.0
+          :new: 1.2
+          :<<: 1.0
+        :score: 2.4166091947189146
+        :path: lib/sox/cmd.rb:31
+      Sox::Cmd#set_output:
+        :operators:
+          :assignment: 2.0
+          :new: 1.0
+        :score: 2.23606797749979
+        :path: lib/sox/cmd.rb:41
+      Sox::Cmd#set_effects:
+        :operators:
+          :assignment: 1.0
+        :score: 1.0
+        :path: lib/sox/cmd.rb:57
+      Sox::Cmd#set_options:
+        :operators:
+          :assignment: 1.0
+        :score: 1.0
+        :path: lib/sox/cmd.rb:66
+  - :name: Sox::File
+    :path: lib/sox/file.rb
+    :total_score: 7.0
+    :highest_score: 4.0
+    :average_score: 3.5
+    :methods:
+      Sox::File#initialize:
+        :operators:
+          :assignment: 4.0
+        :score: 4.0
+        :path: lib/sox/file.rb:16
+      Sox::File#none:
+        :operators:
+          :attr_reader: 2.0
+          :attr_accessor: 1.0
+        :score: 3.0
+        :path: 
+  - :name: Sox::Combiner::BaseStrategy
+    :path: lib/sox/combiner/base_strategy.rb
+    :total_score: 8.614213562373095
+    :highest_score: 2.2
+    :average_score: 1.722842712474619
+    :methods:
+      Sox::Combiner::BaseStrategy#write:
+        :operators:
+          :__method__: 1.2
+          :raise: 1.0
+        :score: 2.2
+        :path: lib/sox/combiner/base_strategy.rb:18
+      Sox::Combiner::BaseStrategy#none:
+        :operators:
+          :include: 2.0
+        :score: 2.0
+        :path: 
+      Sox::Combiner::BaseStrategy#initialize:
+        :operators:
+          :assignment: 2.0
+        :score: 2.0
+        :path: lib/sox/combiner/base_strategy.rb:8
+      Sox::Combiner::BaseStrategy#output_effects:
+        :operators:
+          :assignment: 1.0
+          :[]: 1.0
+        :score: 1.4142135623730951
+        :path: lib/sox/combiner/base_strategy.rb:26
+      Sox::Combiner::BaseStrategy#output_options:
+        :operators:
+          :[]: 1.0
+        :score: 1.0
+        :path: lib/sox/combiner/base_strategy.rb:35
+  - :name: Sox
+    :path: ''
+    :total_score: 1.1
+    :highest_score: 1.1
+    :average_score: 1.1
+    :methods:
+      Sox#none:
+        :operators:
+          :freeze: 1.1
+        :score: 1.1
+        :path: 
+:saikuro:
+  :files:
+  - :classes:
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 11
+      :methods: []
+    - :class_name: Sox::CommandBuilder
+      :complexity: 15
+      :lines: 86
+      :methods:
+      - :name: Sox::CommandBuilder#build_effects
+        :complexity: 4
+        :lines: 8
+      - :name: Sox::CommandBuilder#build_options
+        :complexity: 4
+        :lines: 8
+      - :name: Sox::CommandBuilder#build_file
+        :complexity: 2
+        :lines: 4
+      - :name: Sox::CommandBuilder#build_input_files
+        :complexity: 2
+        :lines: 2
+      - :name: Sox::CommandBuilder#shellify_opt
+        :complexity: 1
+        :lines: 2
+      - :name: Sox::CommandBuilder#build
+        :complexity: 1
+        :lines: 7
+      - :name: Sox::CommandBuilder#initialize
+        :complexity: 1
+        :lines: 5
+    :filename: lib/sox/command_builder.rb
+  - :classes:
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 13
+      :methods: []
+    - :class_name: Sox::Cmd
+      :complexity: 8
+      :lines: 67
+      :methods:
+      - :name: Sox::Cmd#run
+        :complexity: 3
+        :lines: 6
+      - :name: Sox::Cmd#set_effects
+        :complexity: 1
+        :lines: 2
+      - :name: Sox::Cmd#set_options
+        :complexity: 1
+        :lines: 2
+      - :name: Sox::Cmd#set_output
+        :complexity: 1
+        :lines: 2
+      - :name: Sox::Cmd#add_input
+        :complexity: 1
+        :lines: 2
+      - :name: Sox::Cmd#initialize
+        :complexity: 1
+        :lines: 4
+    :filename: lib/sox/cmd.rb
+  - :classes:
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 3
+      :methods: []
+    - :class_name: Sox::Combiner
+      :complexity: 8
+      :lines: 74
+      :methods:
+      - :name: Sox::Combiner#write
+        :complexity: 4
+        :lines: 16
+      - :name: Sox::Combiner#build_output_command
+        :complexity: 2
+        :lines: 14
+      - :name: Sox::Combiner#build_convert_command
+        :complexity: 1
+        :lines: 4
+      - :name: Sox::Combiner#gen_tmp_filename
+        :complexity: 1
+        :lines: 2
+    :filename: lib/sox/combiner/tmp_file_strategy.rb
+  - :classes:
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 8
+      :methods: []
+    - :class_name: Sox::Combiner
+      :complexity: 6
+      :lines: 69
+      :methods:
+      - :name: Sox::Combiner#write
+        :complexity: 2
+        :lines: 6
+      - :name: Sox::Combiner#build_input_file
+        :complexity: 2
+        :lines: 8
+      - :name: Sox::Combiner#build_converted_input
+        :complexity: 1
+        :lines: 6
+      - :name: Sox::Combiner#process_substitution_wrap
+        :complexity: 1
+        :lines: 2
+    :filename: lib/sox/combiner/process_substitution_strategy.rb
+  - :classes:
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 11
+      :methods: []
+    - :class_name: Sox::Combiner
+      :complexity: 4
+      :lines: 61
+      :methods:
+      - :name: Sox::Combiner#initialize
+        :complexity: 3
+        :lines: 9
+      - :name: Sox::Combiner#write
+        :complexity: 1
+        :lines: 2
+    :filename: lib/sox/combiner.rb
+  - :classes:
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 11
+      :methods: []
+    - :class_name: Sox::Shell
+      :complexity: 4
+      :lines: 33
+      :methods:
+      - :name: Sox::Shell#sh
+        :complexity: 3
+        :lines: 13
+      - :name: Sox::Shell#bash
+        :complexity: 1
+        :lines: 3
+    :filename: lib/sox/shell.rb
+  - :classes:
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 3
+      :methods: []
+    - :class_name: Sox::Combiner
+      :complexity: 4
+      :lines: 35
+      :methods:
+      - :name: Sox::Combiner#output_options
+        :complexity: 1
+        :lines: 2
+      - :name: Sox::Combiner#output_effects
+        :complexity: 1
+        :lines: 4
+      - :name: Sox::Combiner#write
+        :complexity: 1
+        :lines: 2
+      - :name: Sox::Combiner#initialize
+        :complexity: 1
+        :lines: 3
+    :filename: lib/sox/combiner/base_strategy.rb
+  - :classes:
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 3
+      :methods: []
+    - :class_name: Sox::File
+      :complexity: 2
+      :lines: 25
+      :methods:
+      - :name: Sox::File#escaped?
+        :complexity: 1
+        :lines: 2
+      - :name: Sox::File#initialize
+        :complexity: 1
+        :lines: 4
+    :filename: lib/sox/file.rb
+  - :classes:
+    - :class_name: ''
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: Sox
+      :complexity: 0
+      :lines: 6
+      :methods: []
+    - :class_name: Sox::Error
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    :filename: lib/sox.rb
+  :classes:
+  - :name: Sox::CommandBuilder
+    :complexity: 15
+    :lines: 86
+    :defs:
+    - :name: Sox::CommandBuilder#initialize
+      :complexity: 1
+      :lines: 5
+    - :name: Sox::CommandBuilder#build
+      :complexity: 1
+      :lines: 7
+    - :name: Sox::CommandBuilder#build_input_files
+      :complexity: 2
+      :lines: 2
+    - :name: Sox::CommandBuilder#build_file
+      :complexity: 2
+      :lines: 4
+    - :name: Sox::CommandBuilder#build_options
+      :complexity: 4
+      :lines: 8
+    - :name: Sox::CommandBuilder#build_effects
+      :complexity: 4
+      :lines: 8
+    - :name: Sox::CommandBuilder#shellify_opt
+      :complexity: 1
+      :lines: 2
+  - :name: Sox::Cmd
+    :complexity: 8
+    :lines: 67
+    :defs:
+    - :name: Sox::Cmd#initialize
+      :complexity: 1
+      :lines: 4
+    - :name: Sox::Cmd#add_input
+      :complexity: 1
+      :lines: 2
+    - :name: Sox::Cmd#set_output
+      :complexity: 1
+      :lines: 2
+    - :name: Sox::Cmd#set_effects
+      :complexity: 1
+      :lines: 2
+    - :name: Sox::Cmd#set_options
+      :complexity: 1
+      :lines: 2
+    - :name: Sox::Cmd#run
+      :complexity: 3
+      :lines: 6
+  - :name: Sox::Combiner
+    :complexity: 8
+    :lines: 74
+    :defs:
+    - :name: Sox::Combiner#write
+      :complexity: 4
+      :lines: 16
+    - :name: Sox::Combiner#build_output_command
+      :complexity: 2
+      :lines: 14
+    - :name: Sox::Combiner#build_convert_command
+      :complexity: 1
+      :lines: 4
+    - :name: Sox::Combiner#gen_tmp_filename
+      :complexity: 1
+      :lines: 2
+  - :name: Sox::Combiner
+    :complexity: 6
+    :lines: 69
+    :defs:
+    - :name: Sox::Combiner#write
+      :complexity: 2
+      :lines: 6
+    - :name: Sox::Combiner#build_input_file
+      :complexity: 2
+      :lines: 8
+    - :name: Sox::Combiner#build_converted_input
+      :complexity: 1
+      :lines: 6
+    - :name: Sox::Combiner#process_substitution_wrap
+      :complexity: 1
+      :lines: 2
+  - :name: Sox::Combiner
+    :complexity: 4
+    :lines: 61
+    :defs:
+    - :name: Sox::Combiner#initialize
+      :complexity: 3
+      :lines: 9
+    - :name: Sox::Combiner#write
+      :complexity: 1
+      :lines: 2
+  - :name: Sox::Combiner
+    :complexity: 4
+    :lines: 35
+    :defs:
+    - :name: Sox::Combiner#initialize
+      :complexity: 1
+      :lines: 3
+    - :name: Sox::Combiner#write
+      :complexity: 1
+      :lines: 2
+    - :name: Sox::Combiner#output_effects
+      :complexity: 1
+      :lines: 4
+    - :name: Sox::Combiner#output_options
+      :complexity: 1
+      :lines: 2
+  - :name: Sox::Shell
+    :complexity: 4
+    :lines: 33
+    :defs:
+    - :name: Sox::Shell#sh
+      :complexity: 3
+      :lines: 13
+    - :name: Sox::Shell#bash
+      :complexity: 1
+      :lines: 3
+  - :name: Sox::File
+    :complexity: 2
+    :lines: 25
+    :defs:
+    - :name: Sox::File#initialize
+      :complexity: 1
+      :lines: 4
+    - :name: Sox::File#escaped?
+      :complexity: 1
+      :lines: 2
+  - :name: Sox::Error
+    :complexity: 0
+    :lines: 1
+  - :name: Sox
+    :complexity: 0
+    :lines: 11
+  - :name: Sox
+    :complexity: 0
+    :lines: 11
+  - :name: Sox
+    :complexity: 0
+    :lines: 3
+  - :name: Sox
+    :complexity: 0
+    :lines: 8
+  - :name: Sox
+    :complexity: 0
+    :lines: 3
+  - :name: Sox
+    :complexity: 0
+    :lines: 3
+  - :name: ''
+    :complexity: 0
+    :lines: 1
+  - :name: Sox
+    :complexity: 0
+    :lines: 13
+  - :name: Sox
+    :complexity: 0
+    :lines: 6
+  - :name: Sox
+    :complexity: 0
+    :lines: 11
+  :methods:
+  - :name: Sox::Combiner#write
+    :complexity: 4
+    :lines: 16
+  - :name: Sox::CommandBuilder#build_effects
+    :complexity: 4
+    :lines: 8
+  - :name: Sox::CommandBuilder#build_options
+    :complexity: 4
+    :lines: 8
+  - :name: Sox::Combiner#initialize
+    :complexity: 3
+    :lines: 9
+  - :name: Sox::Cmd#run
+    :complexity: 3
+    :lines: 6
+  - :name: Sox::Shell#sh
+    :complexity: 3
+    :lines: 13
+  - :name: Sox::CommandBuilder#build_input_files
+    :complexity: 2
+    :lines: 2
+  - :name: Sox::Combiner#build_output_command
+    :complexity: 2
+    :lines: 14
+  - :name: Sox::Combiner#write
+    :complexity: 2
+    :lines: 6
+  - :name: Sox::CommandBuilder#build_file
+    :complexity: 2
+    :lines: 4
+  - :name: Sox::Combiner#build_input_file
+    :complexity: 2
+    :lines: 8
+  - :name: Sox::Combiner#build_convert_command
+    :complexity: 1
+    :lines: 4
+  - :name: Sox::Combiner#process_substitution_wrap
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Combiner#write
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Combiner#gen_tmp_filename
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Combiner#build_converted_input
+    :complexity: 1
+    :lines: 6
+  - :name: Sox::Shell#bash
+    :complexity: 1
+    :lines: 3
+  - :name: Sox::Combiner#initialize
+    :complexity: 1
+    :lines: 3
+  - :name: Sox::Combiner#write
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Cmd#set_options
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Cmd#set_effects
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Cmd#set_output
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Cmd#add_input
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Cmd#initialize
+    :complexity: 1
+    :lines: 4
+  - :name: Sox::CommandBuilder#shellify_opt
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::Combiner#output_effects
+    :complexity: 1
+    :lines: 4
+  - :name: Sox::Combiner#output_options
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::File#initialize
+    :complexity: 1
+    :lines: 4
+  - :name: Sox::File#escaped?
+    :complexity: 1
+    :lines: 2
+  - :name: Sox::CommandBuilder#build
+    :complexity: 1
+    :lines: 7
+  - :name: Sox::CommandBuilder#initialize
+    :complexity: 1
+    :lines: 5
+:reek:
+  :matches:
+  - :file_path: lib/ruby-sox.rb
+    :code_smells: []
+  - :file_path: lib/sox.rb
+    :code_smells: []
+  - :file_path: lib/sox/cmd.rb
+    :code_smells: []
+  - :file_path: lib/sox/combiner.rb
+    :code_smells: []
+  - :file_path: lib/sox/combiner/base_strategy.rb
+    :code_smells:
+    - :method: Sox::Combiner::BaseStrategy#write
+      :message: has unused parameter 'output_file'
+      :type: UnusedParameters
+  - :file_path: lib/sox/combiner/process_substitution_strategy.rb
+    :code_smells: []
+  - :file_path: lib/sox/combiner/tmp_file_strategy.rb
+    :code_smells:
+    - :method: Sox::Combiner::TmpFileStrategy#write
+      :message: calls sh(cmd) twice
+      :type: DuplicateMethodCall
+    - :method: Sox::Combiner::TmpFileStrategy#write
+      :message: has approx 9 statements
+      :type: TooManyStatements
+  - :file_path: lib/sox/command_builder.rb
+    :code_smells:
+    - :method: Sox::CommandBuilder#build_effects
+      :message: refers to result more than self
+      :type: FeatureEnvy
+    - :method: Sox::CommandBuilder#build_effects
+      :message: refers to val more than self
+      :type: FeatureEnvy
+    - :method: Sox::CommandBuilder#build_file
+      :message: calls file.path twice
+      :type: DuplicateMethodCall
+    - :method: Sox::CommandBuilder#build_file
+      :message: refers to file more than self
+      :type: FeatureEnvy
+    - :method: Sox::CommandBuilder#shellify_opt
+      :message: doesn't depend on instance state
+      :type: UtilityFunction
+    - :method: Sox::CommandBuilder#shellify_opt
+      :message: refers to value more than self
+      :type: FeatureEnvy
+  - :file_path: lib/sox/file.rb
+    :code_smells: []
+  - :file_path: lib/sox/shell.rb
+    :code_smells:
+    - :method: Sox::Shell#sh
+      :message: has approx 7 statements
+      :type: TooManyStatements
+:roodi:
+  :total:
+  - Found 0 errors.
+  :problems: []
+:stats:
+  :codeLOC: 260
+  :testLOC: 492
+  :code_to_test_ratio: 1.9
+  :lines:
+  - :name: Libraries
+    :lines: 542
+    :loc: 260
+    :classes: 8
+    :methods: 31
+    :methods_per_class: 3
+    :loc_per_method: 6
+  - :name: Integration specs
+    :lines: 242
+    :loc: 174
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Sox specs
+    :lines: 189
+    :loc: 154
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Combiner specs
+    :lines: 11
+    :loc: 10
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Lib specs
+    :lines: 189
+    :loc: 154
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Total
+    :lines: 1173
+    :loc: 752
+    :classes: 8
+    :methods: 31
+    :methods_per_class: 3
+    :loc_per_method: 22
+:hotspots:
+  :files:
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/shell.rb:20
+      file_name: lib/sox/shell.rb
+      line_number: '20'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 1929745615871021609
+    :details:
+      :flog: complexity is 13.8
+      :saikuro: complexity is 3.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:15
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '15'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 2910311838414408841
+    :details:
+      :flog: complexity is 13.1
+      :saikuro: average complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:63
+      file_name: lib/sox/command_builder.rb
+      line_number: '63'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -1869498489307914945
+    :details:
+      :flog: complexity is 10.8
+      :saikuro: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:77
+      file_name: lib/sox/command_builder.rb
+      line_number: '77'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -2512543043882178524
+    :details:
+      :flog: complexity is 9.4
+      :saikuro: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner.rb:53
+      file_name: lib/sox/combiner.rb
+      line_number: '53'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 3677351281118818371
+    :details:
+      :flog: complexity is 10.1
+      :saikuro: complexity is 3.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:22
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '22'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -606767388794438646
+    :details:
+      :flog: complexity is 9.6
+      :saikuro: average complexity is 1.5
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:39
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '39'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 4217486557071249053
+    :details:
+      :flog: complexity is 10.6
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:73
+      file_name: lib/sox/cmd.rb
+      line_number: '73'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 3959796661722228044
+    :details:
+      :flog: complexity is 6.8
+      :saikuro: complexity is 3.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:51
+      file_name: lib/sox/command_builder.rb
+      line_number: '51'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 2898348886578249912
+    :details:
+      :flog: complexity is 7.1
+      :saikuro: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:28
+      file_name: lib/sox/command_builder.rb
+      line_number: '28'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 3924183530597303557
+    :details:
+      :flog: complexity is 7.8
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:58
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '58'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -207212117770035101
+    :details:
+      :flog: complexity is 8.2
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:18
+      file_name: lib/sox/command_builder.rb
+      line_number: '18'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -2387360062238945274
+    :details:
+      :flog: complexity is 6.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:63
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '63'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -3089223634112693831
+    :details:
+      :flog: complexity is 6.7
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:37
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '37'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -1028764611195903998
+    :details:
+      :flog: complexity is 6.6
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:19
+      file_name: lib/sox/cmd.rb
+      line_number: '19'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 450983603267057567
+    :details:
+      :flog: complexity is 4.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/file.rb:16
+      file_name: lib/sox/file.rb
+      line_number: '16'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -4272556983578390750
+    :details:
+      :flog: complexity is 4.0
+      :saikuro: average complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:41
+      file_name: lib/sox/command_builder.rb
+      line_number: '41'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 2178437184686159876
+    :details:
+      :flog: complexity is 2.3
+      :saikuro: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:31
+      file_name: lib/sox/cmd.rb
+      line_number: '31'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -83827397260300141
+    :details:
+      :flog: complexity is 2.4
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/shell.rb:40
+      file_name: lib/sox/shell.rb
+      line_number: '40'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 4496770729726449237
+    :details:
+      :flog: complexity is 2.2
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:41
+      file_name: lib/sox/cmd.rb
+      line_number: '41'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -413930511591205822
+    :details:
+      :flog: complexity is 2.2
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:93
+      file_name: lib/sox/command_builder.rb
+      line_number: '93'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -929497689592831193
+    :details:
+      :flog: complexity is 2.2
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:18
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '18'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -1438842577553914839
+    :details:
+      :flog: complexity is 2.2
+      :saikuro: average complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner.rb:69
+      file_name: lib/sox/combiner.rb
+      line_number: '69'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -4261996151627938914
+    :details:
+      :flog: complexity is 1.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:66
+      file_name: lib/sox/cmd.rb
+      line_number: '66'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 1671906081318216652
+    :details:
+      :flog: complexity is 1.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:8
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '8'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 4494705911457311691
+    :details:
+      :flog: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:57
+      file_name: lib/sox/cmd.rb
+      line_number: '57'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 3063546571270837342
+    :details:
+      :flog: complexity is 1.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:26
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '26'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 3047200492650686720
+    :details:
+      :flog: complexity is 1.4
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:73
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '73'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -2029768983435527730
+    :details:
+      :flog: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:35
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '35'
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -1443741153265662933
+    :details:
+      :flog: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb
+      file_name: lib/sox/command_builder.rb
+      line_number: 
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -1616554602714218564
+    :details:
+      :reek: found 6 code smells
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: 
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: 1516175687318095223
+    :details:
+      :reek: found 2 code smells
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: 
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -1983485848710717969
+    :details:
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/shell.rb
+      file_name: lib/sox/shell.rb
+      line_number: 
+      class_name: 
+      method_name: 
+      simple_method_name: ''
+      hash: -2056451491468312397
+    :details:
+      :reek: found 1 code smells
+  :classes:
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: main
+      method_name: 
+      simple_method_name: ''
+      hash: 3967273570514269001
+    :details:
+      :flog: complexity is 11.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/shell.rb:20
+      file_name: lib/sox/shell.rb
+      line_number: '20'
+      class_name: Shell
+      method_name: 
+      simple_method_name: ''
+      hash: 1881953952140117118
+    :details:
+      :flog: average complexity is 8.0
+      :reek: found 1 code smells
+      :saikuro: average complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:63
+      file_name: lib/sox/command_builder.rb
+      line_number: '63'
+      class_name: CommandBuilder
+      method_name: 
+      simple_method_name: ''
+      hash: 334848763306668393
+    :details:
+      :flog: average complexity is 6.4
+      :reek: found 6 code smells
+      :saikuro: average complexity is 2.1
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:15
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '15'
+      class_name: TmpFileStrategy
+      method_name: 
+      simple_method_name: ''
+      hash: -2767093380103271878
+    :details:
+      :flog: average complexity is 6.9
+      :reek: found 2 code smells
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:22
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '22'
+      class_name: ProcessSubstitutionStrategy
+      method_name: 
+      simple_method_name: ''
+      hash: 447814371448666011
+    :details:
+      :flog: average complexity is 6.9
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner.rb:53
+      file_name: lib/sox/combiner.rb
+      line_number: '53'
+      class_name: Combiner
+      method_name: 
+      simple_method_name: ''
+      hash: -3932115087732188810
+    :details:
+      :flog: average complexity is 4.9
+      :saikuro: average complexity is 1.6
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/file.rb:16
+      file_name: lib/sox/file.rb
+      line_number: '16'
+      class_name: File
+      method_name: 
+      simple_method_name: ''
+      hash: 2837658919576624033
+    :details:
+      :flog: average complexity is 3.5
+      :saikuro: average complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:73
+      file_name: lib/sox/cmd.rb
+      line_number: '73'
+      class_name: Cmd
+      method_name: 
+      simple_method_name: ''
+      hash: -1583511425312354918
+    :details:
+      :flog: average complexity is 2.9
+      :saikuro: average complexity is 1.3
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:18
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '18'
+      class_name: BaseStrategy
+      method_name: 
+      simple_method_name: ''
+      hash: 1796314508610181111
+    :details:
+      :flog: average complexity is 1.7
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: Sox
+      method_name: 
+      simple_method_name: ''
+      hash: -891193100508727773
+    :details:
+      :flog: complexity is 1.1
+  :methods:
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/shell.rb:20
+      file_name: lib/sox/shell.rb
+      line_number: '20'
+      class_name: Shell
+      method_name: Shell#sh
+      simple_method_name: '#sh'
+      hash: -291502651756442743
+    :details:
+      :flog: complexity is 13.8
+      :reek: found 1 code smells
+      :saikuro: complexity is 3.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:63
+      file_name: lib/sox/command_builder.rb
+      line_number: '63'
+      class_name: CommandBuilder
+      method_name: CommandBuilder#build_options
+      simple_method_name: '#build_options'
+      hash: 3374511047873241662
+    :details:
+      :flog: complexity is 10.8
+      :saikuro: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:77
+      file_name: lib/sox/command_builder.rb
+      line_number: '77'
+      class_name: CommandBuilder
+      method_name: CommandBuilder#build_effects
+      simple_method_name: '#build_effects'
+      hash: 786454068736410717
+    :details:
+      :flog: complexity is 9.4
+      :reek: found 2 code smells
+      :saikuro: complexity is 4.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:15
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '15'
+      class_name: TmpFileStrategy
+      method_name: TmpFileStrategy#write
+      simple_method_name: '#write'
+      hash: 2087415289492809473
+    :details:
+      :flog: complexity is 13.1
+      :reek: found 2 code smells
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner.rb:53
+      file_name: lib/sox/combiner.rb
+      line_number: '53'
+      class_name: Combiner
+      method_name: Combiner#initialize
+      simple_method_name: '#initialize'
+      hash: 3667726595751361014
+    :details:
+      :flog: complexity is 10.1
+      :saikuro: average complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: main
+      method_name: main#none
+      simple_method_name: '#none'
+      hash: -3999335080116416943
+    :details:
+      :flog: complexity is 11.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:39
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '39'
+      class_name: TmpFileStrategy
+      method_name: TmpFileStrategy#build_output_command
+      simple_method_name: '#build_output_command'
+      hash: -1142530072521648957
+    :details:
+      :flog: complexity is 10.6
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:51
+      file_name: lib/sox/command_builder.rb
+      line_number: '51'
+      class_name: CommandBuilder
+      method_name: CommandBuilder#build_file
+      simple_method_name: '#build_file'
+      hash: 2847655176095658303
+    :details:
+      :flog: complexity is 7.1
+      :reek: found 2 code smells
+      :saikuro: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:73
+      file_name: lib/sox/cmd.rb
+      line_number: '73'
+      class_name: Cmd
+      method_name: Cmd#run
+      simple_method_name: '#run'
+      hash: -531370437019129292
+    :details:
+      :flog: complexity is 6.8
+      :saikuro: complexity is 3.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:22
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '22'
+      class_name: ProcessSubstitutionStrategy
+      method_name: ProcessSubstitutionStrategy#write
+      simple_method_name: '#write'
+      hash: -3184516360497491616
+    :details:
+      :flog: complexity is 9.6
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:28
+      file_name: lib/sox/command_builder.rb
+      line_number: '28'
+      class_name: CommandBuilder
+      method_name: CommandBuilder#build
+      simple_method_name: '#build'
+      hash: -1155639140883879724
+    :details:
+      :flog: complexity is 7.8
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:58
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '58'
+      class_name: ProcessSubstitutionStrategy
+      method_name: ProcessSubstitutionStrategy#build_converted_input
+      simple_method_name: '#build_converted_input'
+      hash: 740391472908124287
+    :details:
+      :flog: complexity is 8.2
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:18
+      file_name: lib/sox/command_builder.rb
+      line_number: '18'
+      class_name: CommandBuilder
+      method_name: CommandBuilder#initialize
+      simple_method_name: '#initialize'
+      hash: -2662652390708865290
+    :details:
+      :flog: complexity is 6.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:63
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '63'
+      class_name: TmpFileStrategy
+      method_name: TmpFileStrategy#build_convert_command
+      simple_method_name: '#build_convert_command'
+      hash: 239896941918469470
+    :details:
+      :flog: complexity is 6.7
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:37
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '37'
+      class_name: ProcessSubstitutionStrategy
+      method_name: ProcessSubstitutionStrategy#build_input_file
+      simple_method_name: '#build_input_file'
+      hash: 36792120719565467
+    :details:
+      :flog: complexity is 6.6
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: CommandBuilder
+      method_name: CommandBuilder#none
+      simple_method_name: '#none'
+      hash: -2113044562887025322
+    :details:
+      :flog: complexity is 6.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:19
+      file_name: lib/sox/cmd.rb
+      line_number: '19'
+      class_name: Cmd
+      method_name: Cmd#initialize
+      simple_method_name: '#initialize'
+      hash: 632711419518961712
+    :details:
+      :flog: complexity is 4.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/file.rb:16
+      file_name: lib/sox/file.rb
+      line_number: '16'
+      class_name: File
+      method_name: File#initialize
+      simple_method_name: '#initialize'
+      hash: -446422220627983106
+    :details:
+      :flog: complexity is 4.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:41
+      file_name: lib/sox/command_builder.rb
+      line_number: '41'
+      class_name: CommandBuilder
+      method_name: CommandBuilder#build_input_files
+      simple_method_name: '#build_input_files'
+      hash: 4298373908725422932
+    :details:
+      :flog: complexity is 2.3
+      :saikuro: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/command_builder.rb:93
+      file_name: lib/sox/command_builder.rb
+      line_number: '93'
+      class_name: CommandBuilder
+      method_name: CommandBuilder#shellify_opt
+      simple_method_name: '#shellify_opt'
+      hash: -3542318358030501892
+    :details:
+      :flog: complexity is 2.2
+      :reek: found 2 code smells
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: Combiner
+      method_name: Combiner#none
+      simple_method_name: '#none'
+      hash: -3077064454168667607
+    :details:
+      :flog: complexity is 3.5
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:31
+      file_name: lib/sox/cmd.rb
+      line_number: '31'
+      class_name: Cmd
+      method_name: Cmd#add_input
+      simple_method_name: '#add_input'
+      hash: -3407703030464864735
+    :details:
+      :flog: complexity is 2.4
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: ProcessSubstitutionStrategy
+      method_name: ProcessSubstitutionStrategy#none
+      simple_method_name: '#none'
+      hash: 4498190059237999287
+    :details:
+      :flog: complexity is 3.2
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: TmpFileStrategy
+      method_name: TmpFileStrategy#none
+      simple_method_name: '#none'
+      hash: 1660237088027451245
+    :details:
+      :flog: complexity is 3.2
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:41
+      file_name: lib/sox/cmd.rb
+      line_number: '41'
+      class_name: Cmd
+      method_name: Cmd#set_output
+      simple_method_name: '#set_output'
+      hash: 63576826406065001
+    :details:
+      :flog: complexity is 2.2
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/shell.rb:40
+      file_name: lib/sox/shell.rb
+      line_number: '40'
+      class_name: Shell
+      method_name: Shell#bash
+      simple_method_name: '#bash'
+      hash: -3304858540697054161
+    :details:
+      :flog: complexity is 2.2
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: Cmd
+      method_name: Cmd#none
+      simple_method_name: '#none'
+      hash: 4595197164768320259
+    :details:
+      :flog: complexity is 3.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner.rb:69
+      file_name: lib/sox/combiner.rb
+      line_number: '69'
+      class_name: Combiner
+      method_name: Combiner#write
+      simple_method_name: '#write'
+      hash: -1576406076028458953
+    :details:
+      :flog: complexity is 1.0
+      :saikuro: average complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: File
+      method_name: File#none
+      simple_method_name: '#none'
+      hash: -2359484018270174599
+    :details:
+      :flog: complexity is 3.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:18
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '18'
+      class_name: BaseStrategy
+      method_name: BaseStrategy#write
+      simple_method_name: '#write'
+      hash: -3010116775358335276
+    :details:
+      :flog: complexity is 2.2
+      :reek: found 1 code smells
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:57
+      file_name: lib/sox/cmd.rb
+      line_number: '57'
+      class_name: Cmd
+      method_name: Cmd#set_effects
+      simple_method_name: '#set_effects'
+      hash: 1402350130585867968
+    :details:
+      :flog: complexity is 1.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:22
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '22'
+      class_name: Combiner
+      method_name: Combiner#build_input_file
+      simple_method_name: '#build_input_file'
+      hash: 475821382099826418
+    :details:
+      :saikuro: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/cmd.rb:66
+      file_name: lib/sox/cmd.rb
+      line_number: '66'
+      class_name: Cmd
+      method_name: Cmd#set_options
+      simple_method_name: '#set_options'
+      hash: -631773522729786710
+    :details:
+      :flog: complexity is 1.0
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: BaseStrategy
+      method_name: BaseStrategy#none
+      simple_method_name: '#none'
+      hash: -2081826961625783789
+    :details:
+      :flog: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:15
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '15'
+      class_name: Combiner
+      method_name: Combiner#build_output_command
+      simple_method_name: '#build_output_command'
+      hash: -1995012880861126221
+    :details:
+      :saikuro: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:8
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '8'
+      class_name: BaseStrategy
+      method_name: BaseStrategy#initialize
+      simple_method_name: '#initialize'
+      hash: 1462211290285962808
+    :details:
+      :flog: complexity is 2.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:26
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '26'
+      class_name: BaseStrategy
+      method_name: BaseStrategy#output_effects
+      simple_method_name: '#output_effects'
+      hash: 2211749628062660692
+    :details:
+      :flog: complexity is 1.4
+  - :location: !ruby/object:MetricFu::Location
+      file_path: 
+      file_name: 
+      line_number: 
+      class_name: Sox
+      method_name: Sox#none
+      simple_method_name: '#none'
+      hash: 3925859985133992776
+    :details:
+      :flog: complexity is 1.1
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:73
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '73'
+      class_name: TmpFileStrategy
+      method_name: TmpFileStrategy#gen_tmp_filename
+      simple_method_name: '#gen_tmp_filename'
+      hash: -1897678428525180360
+    :details:
+      :flog: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:15
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '15'
+      class_name: Combiner
+      method_name: Combiner#build_convert_command
+      simple_method_name: '#build_convert_command'
+      hash: 4474135138206913311
+    :details:
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/tmp_file_strategy.rb:15
+      file_name: lib/sox/combiner/tmp_file_strategy.rb
+      line_number: '15'
+      class_name: Combiner
+      method_name: Combiner#gen_tmp_filename
+      simple_method_name: '#gen_tmp_filename'
+      hash: 2221128052069144316
+    :details:
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:35
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '35'
+      class_name: BaseStrategy
+      method_name: BaseStrategy#output_options
+      simple_method_name: '#output_options'
+      hash: 4315685356211194452
+    :details:
+      :flog: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:22
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '22'
+      class_name: Combiner
+      method_name: Combiner#build_converted_input
+      simple_method_name: '#build_converted_input'
+      hash: -3443909120777924868
+    :details:
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/process_substitution_strategy.rb:22
+      file_name: lib/sox/combiner/process_substitution_strategy.rb
+      line_number: '22'
+      class_name: Combiner
+      method_name: Combiner#process_substitution_wrap
+      simple_method_name: '#process_substitution_wrap'
+      hash: -2260719933765065084
+    :details:
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:18
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '18'
+      class_name: Combiner
+      method_name: Combiner#output_options
+      simple_method_name: '#output_options'
+      hash: 4323646659082307410
+    :details:
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/combiner/base_strategy.rb:18
+      file_name: lib/sox/combiner/base_strategy.rb
+      line_number: '18'
+      class_name: Combiner
+      method_name: Combiner#output_effects
+      simple_method_name: '#output_effects'
+      hash: 400743212457020794
+    :details:
+      :saikuro: complexity is 1.0
+  - :location: !ruby/object:MetricFu::Location
+      file_path: lib/sox/file.rb:16
+      file_name: lib/sox/file.rb
+      line_number: '16'
+      class_name: File
+      method_name: File#escaped?
+      simple_method_name: '#escaped?'
+      hash: -2221789077776065526
+    :details:
+      :saikuro: complexity is 1.0

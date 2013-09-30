@@ -13,15 +13,17 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "sox"
-  gem.homepage = "http://github.com/greyblake/sox"
-  gem.license = "MIT"
-  gem.summary = %Q{Wrapper around sox sound tool}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "blake131313@gmail.com"
-  gem.authors = ["Potapov Sergey"]
-  # dependencies defined in Gemfile
+  gem.name        = "ruby-sox"
+  gem.homepage    = "http://github.com/greyblake/ruby-sox"
+  gem.license     = "MIT"
+  gem.summary     = %Q{Wrapper around sox sound tool}
+  gem.description = %Q{Wrapper around sox sound tool}
+  gem.email       = "blake131313@gmail.com"
+  gem.authors     = ["Potapov Sergey"]
+
+  gem.files = Dir["lib/**/*"] +
+              Dir['README.markdown'] +
+              Dir['LICENSE.txt']
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -37,13 +39,3 @@ RSpec::Core::RakeTask.new(:rcov) do |spec|
 end
 
 task :default => :spec
-
-require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "sox #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end

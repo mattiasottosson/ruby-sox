@@ -64,7 +64,7 @@ module Sox
       options.inject([]) do |result, (opt, val)|
         if val
           result << "--#{shellify_opt(opt)}"
-          result << shellify_opt(val) unless val.is_a?(TrueClass)
+          result << shellify_opt(val) if val != true
         end
         result
       end
@@ -78,7 +78,7 @@ module Sox
       @effects.inject([]) do |result, (effect, val)|
         if val
           result << effect
-          result << val.to_s unless val.is_a?(TrueClass)
+          result << val.to_s if val != true
         end
         result
       end

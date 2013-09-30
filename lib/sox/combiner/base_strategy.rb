@@ -24,9 +24,7 @@ module Sox
     #
     # @return [Hash]
     def output_effects
-      effects = {:norm => @options[:normalize]}
-      #effects[:norm] = true if @options[:normalize]
-      #effects
+      {:norm => @options[:norm]}
     end
 
     # Build global options for +sox+ command.

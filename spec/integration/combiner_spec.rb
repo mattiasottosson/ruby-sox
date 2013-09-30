@@ -70,9 +70,9 @@ shared_examples_for "combiner" do |options|
         it 'should mix and normalize' do
           files = [drums_input, guitar2_input, guitar3_input]
           combiner = Sox::Combiner.new( files,
-                                        :combine   => :mix,
-                                        :normalize => true,
-                                        :strategy  => strategy )
+                                        :combine  => :mix,
+                                        :norm     => true,
+                                        :strategy => strategy )
           combiner.write(output_file)
 
           File.exists?(output_file).should be_true

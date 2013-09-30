@@ -26,7 +26,7 @@ module Sox
       :rate => 22050,
 
       # Apply norm effect on output.
-      :normalize => false,
+      :norm => false,
 
       # Strategy to convert input files into files with the same rates
       # and channels.
@@ -47,7 +47,7 @@ module Sox
     #   Use underscore instead of hyphen, e.g. :mix_power.
     # @option options :channels [Integer] number of channels in output file.
     # @option options :rate [Integer] rate of output file
-    # @option options :normalize [Boolean] apply +norm+ effect on output.
+    # @option options :norm [Boolean] apply +norm+ effect on output.
     # @option options :strategy [Symbol] strategy to treat temporary files,
     #   default is :process_substitution which reduces disk IO.
     def initialize(input_files, options = {})

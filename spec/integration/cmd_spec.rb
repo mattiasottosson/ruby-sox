@@ -14,13 +14,12 @@ describe "Sox::Cmd integration" do
     in1 = input_fixture('guitar2.wav')
     in2 = input_fixture('guitar3.wav')
 
-    sox = Sox::Cmd.new(:combine => :mix)
-    sox.add_input(in1, :type => :wav)
-    sox.add_input(in2, :type => :wav)
-    sox.set_output(output_file)
-    sox.set_effects(:rate => 44100, :channels => 2)
-
-    sox.run
+    Sox::Cmd.new(:combine => :mix)
+      .add_input(in1, :type => :wav)
+      .add_input(in2, :type => :wav)
+      .set_output(output_file)
+      .set_effects(:rate => 44100, :channels => 2)
+      .run
 
     File.exists?(output_file).should be_true
     output_file.should have_rate(44100)
@@ -31,12 +30,11 @@ describe "Sox::Cmd integration" do
   it 'should apply chorus effect on drums' do
     input = input_fixture('drums_128kb.mp3')
 
-    sox = Sox::Cmd.new
-    sox.add_input(input)
-    sox.set_output(output_file)
-    sox.set_effects(:chorus => '0.99 0.9 55 0.4 0.25 2 -s')
-
-    sox.run
+    Sox::Cmd.new
+      .add_input(input)
+      .set_output(output_file)
+      .set_effects(:chorus => '0.99 0.9 55 0.4 0.25 2 -s')
+      .run
 
     File.exists?(output_file).should be_true
     output_file.should sound_like output_fixture("drums_chorus.mp3")

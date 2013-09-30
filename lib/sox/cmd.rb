@@ -27,9 +27,10 @@ module Sox
     # @param file_path [String] path to file
     # @param input_options [Hash] options for input files, see +man sox+
     #
-    # @return [void]
+    # @return [Sox::Cmd] self
     def add_input(file_path, input_options = {})
       @inputs << Sox::File.new(file_path, input_options)
+      self
     end
 
     # Set output file and its options.
@@ -37,9 +38,10 @@ module Sox
     # @param file_path [String] ouput file path
     # @param output_options [Hash] options for output file, see +man sox+
     #
-    # @return [void]
+    # @return [Sox::Cmd] self
     def set_output(file_path, output_options = {})
       @output = Sox::File.new(file_path, output_options)
+      self
     end
 
     # Set effects on the output file. See +man sox+ section +EFFECTS+.
@@ -53,18 +55,20 @@ module Sox
     #
     # @param effects [Hash{Symbol, String => Symbol, String, Array<String>}]
     #
-    # @return [void]
+    # @return [Sox::Cmd] self
     def set_effects(effects)
       @effects = effects
+      self
     end
 
     # Set global options. See +man sox+ section +Global Options+.
     #
     # @param options [Hash] global options for +sox+ command
     #
-    # @return [void]
+    # @return [Sox::Cmd] self
     def set_options(options)
       @options = options
+      self
     end
 
     # Run `sox` command. Raise {Sox::Error} on fail.

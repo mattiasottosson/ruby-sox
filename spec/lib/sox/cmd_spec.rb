@@ -37,6 +37,10 @@ describe Sox::Cmd do
       b.path.should    == 'b.wav'
       b.options.should == {:type => :wav}
     end
+
+    it 'should return self' do
+      sox.add_input('a.mp3').should == sox
+    end
   end
 
   describe '#set_output' do
@@ -48,6 +52,10 @@ describe Sox::Cmd do
       output.path.should == 'out.raw'
       output.options.should == {:bits => 16}
     end
+
+    it 'should return self' do
+      sox.set_output('out.mp3').should == sox
+    end
   end
 
   describe '#set_effects' do
@@ -55,12 +63,20 @@ describe Sox::Cmd do
       sox.set_effects(:norm => true, :channels => 1)
       sox.effects.should == {:norm => true, :channels => 1}
     end
+
+    it 'should return self' do
+      sox.set_effects({}).should == sox
+    end
   end
 
   describe '#set_options' do
     it 'should set options' do
       sox.set_options(:combine => :concatenate)
       sox.options.should == {:combine => :concatenate}
+    end
+
+    it 'should return self' do
+      sox.set_options({}).should == sox
     end
   end
 

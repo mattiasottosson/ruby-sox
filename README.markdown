@@ -37,12 +37,15 @@ Allows you to do everything that the `sox` command does.
 Mix 3 files into one (ruby-sox assumes that input files have same rate and number of channels):
 
 ```ruby
+# Build command
 sox = Sox::Cmd.new(:combine => :mix)
-sox.add_input("guitar1.flac")
-sox.add_input("guitar2.flac")
-sox.add_input("drums.flac")
-sox.set_output("hell_rock-n-roll.mp3")
-sox.set_effects(:rate => 44100, :channels => 2)
+        .add_input("guitar1.flac")
+        .add_input("guitar2.flac")
+        .add_input("drums.flac")
+        .set_output("hell_rock-n-roll.mp3")
+        .set_effects(:rate => 44100, :channels => 2)
+
+# Execute command
 sox.run
 ```
 

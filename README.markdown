@@ -14,7 +14,7 @@ A Ruby wrapper for the `sox` command line tool to process sound.
 ### Debian / Ubuntu
 
 ```bash
-apt-get install lame sox libchromaprint-dev
+apt-get install libsox-fmt-all sox libchromaprint-dev
 ```
 
 ### Mac

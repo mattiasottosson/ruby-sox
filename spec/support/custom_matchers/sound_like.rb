@@ -7,7 +7,7 @@ RSpec::Matchers.define :sound_like do |expected_file|
   match do |file|
     rate      = 44100
     channels  = 1
-    threshold = 0.95
+    threshold = 0.9
 
     if File.exists?(expected_file) && File.exists?(file)
       # Convert input files into raw 16-bit signed audio (WAV) to process with Chromaprint

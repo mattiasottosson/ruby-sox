@@ -4,4 +4,4 @@ rvm:
   - "2.0.0"
 script: "bundle exec rake spec"
 before_install:
- - sudo apt-get install sox libchromaprint-dev
+ - sudo apt-get install lame sox libchromaprint-dev

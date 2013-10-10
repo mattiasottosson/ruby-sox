@@ -1,5 +1,7 @@
 # Ruby SoX
 
+[![Build Status](https://travis-ci.org/TMXCredit/ruby-sox.png?branch=master)](https://travis-ci.org/TMXCredit/ruby-sox)
+
 A Ruby wrapper for the `sox` command line tool to process sound.
 
 
@@ -12,7 +14,7 @@ A Ruby wrapper for the `sox` command line tool to process sound.
 ### Debian / Ubuntu
 
 ```bash
-apt-get install sox libchromaprint-dev
+apt-get install lame sox libchromaprint-dev
 ```
 
 ### Mac

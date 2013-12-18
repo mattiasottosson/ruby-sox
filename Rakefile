@@ -18,8 +18,8 @@ Jeweler::Tasks.new do |gem|
   gem.license     = "MIT"
   gem.summary     = %Q{Wrapper around sox sound tool}
   gem.description = %Q{Wrapper around sox sound tool}
-  gem.email       = "blake131313@gmail.com"
-  gem.authors     = ["Potapov Sergey"]
+  gem.email       = ["rubygems@tmxcredit.com", "blake131313@gmail.com"]
+  gem.authors     = ["TMX Credit", "Potapov Sergey"]
 
   gem.files = Dir["lib/**/*"] +
               Dir['README.markdown'] +

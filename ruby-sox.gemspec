@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = "ruby-sox"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Potapov Sergey"]
+  s.authors = ["TMX Credit", "Potapov Sergey"]
   s.date = "2013-09-30"
   s.description = "Wrapper around sox sound tool"
-  s.email = "blake131313@gmail.com"
+  s.email = ["rubygems@tmxcredit.com", "blake131313@gmail.com"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.markdown"

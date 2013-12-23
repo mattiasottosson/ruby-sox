@@ -6,7 +6,7 @@ module Sox
   #
   # @example
   #   # Concatenate
-  #   combiner = Sox::Combiner.new('in1.mp3', 'in2.ogg', 'in3.wav', :combine => :concatenate)
+  #   combiner = Sox::Combiner.new(['in1.mp3', 'in2.ogg', 'in3.wav'], :combine => :concatenate)
   #   combiner.write('out.mp3')
   class Combiner
 

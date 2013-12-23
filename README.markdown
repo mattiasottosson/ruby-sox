@@ -62,14 +62,14 @@ to have the same rate and number of channels, and then combines them.
 Concatenate:
 
 ```ruby
-combiner = Sox::Combiner.new('in1.mp3', 'in2.ogg', 'in3.wav', :combine => :concatenate)
+combiner = Sox::Combiner.new(['in1.mp3', 'in2.ogg', 'in3.wav'], :combine => :concatenate)
 combiner.write('out.mp3')
 ```
 
 Mix 3 files into an MP3 with 2 channels and a rate of 1600:
 
 ```ruby
-combiner = Sox::Combiner.new('in1.mp3', 'in2.ogg', 'in3.wav', :combine => :mix, :rate => 1600, :channels => 2)
+combiner = Sox::Combiner.new(['in1.mp3', 'in2.ogg', 'in3.wav'], :combine => :mix, :rate => 1600, :channels => 2)
 combiner.write('out.mp3')
 ```
 

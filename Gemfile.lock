@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.0.0)
+    activesupport (4.0.2)
       i18n (~> 0.6, >= 0.6.4)
       minitest (~> 4.2)
       multi_json (~> 1.3)
@@ -10,38 +10,39 @@ GEM
     addressable (2.3.5)
     arrayfields (4.9.0)
     atomic (1.1.14)
-    awesome_print (1.1.0)
-    bluff (0.1.0)
+    awesome_print (1.2.0)
     builder (3.2.2)
-    cane (2.6.0)
+    cane (2.6.1)
       parallel
-    chromaprint (0.0.1)
+    chromaprint (0.0.2)
       ffi
     chronic (0.10.2)
-    churn (0.0.33)
+    churn (0.0.35)
       chronic (>= 0.2.3)
       hirb
       json_pure
       main
+      rest-client (>= 1.6.0)
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.1)
-    code_analyzer (0.4.2)
+    code_analyzer (0.4.4)
       sexp_processor
-    code_metrics (0.1.0)
-    coderay (1.0.9)
+    code_metrics (0.1.3)
+    coderay (1.1.0)
     colored (1.2)
     diff-lcs (1.2.4)
+    docile (1.1.2)
     erubis (2.7.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     fattr (2.2.1)
-    ffi (1.9.0)
+    ffi (1.9.3)
     flay (2.4.0)
       ruby_parser (~> 3.0)
       sexp_processor (~> 4.0)
-    flog (4.1.2)
+    flog (4.2.0)
       ruby_parser (~> 3.1, > 3.1.0)
-      sexp_processor (~> 4.0)
+      sexp_processor (~> 4.4)
     formatador (0.2.4)
     git (1.2.6)
     github_api (0.10.1)
@@ -64,7 +65,7 @@ GEM
     highline (1.6.19)
     hirb (0.7.1)
     httpauth (0.2.0)
-    i18n (0.6.5)
+    i18n (0.6.9)
     jeweler (1.8.7)
       builder
       bundler (~> 1.0)
@@ -75,7 +76,7 @@ GEM
       rake
       rdoc
     json (1.8.0)
-    json_pure (1.8.0)
+    json_pure (1.8.1)
     jwt (0.1.8)
       multi_json (>= 1.5)
     listen (1.3.1)
@@ -90,8 +91,7 @@ GEM
       map (>= 5.1.0)
     map (6.5.1)
     method_source (0.8.2)
-    metric_fu (4.4.1)
-      bluff
+    metric_fu (4.7.1)
       cane (~> 2.5, >= 2.5.2)
       churn (~> 0.0.28)
       code_metrics (~> 0.1)
@@ -102,11 +102,12 @@ GEM
       multi_json
       rails_best_practices (~> 1.14, >= 1.14.3)
       redcard
-      reek (~> 1.3, >= 1.3.3)
+      reek (~> 1.3, >= 1.3.4)
       roodi (~> 3.1)
     metric_fu-Saikuro (1.1.1.0)
+    mime-types (2.0)
     minitest (4.7.5)
-    multi_json (1.8.0)
+    multi_json (1.8.4)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
     nokogiri (1.5.10)
@@ -117,22 +118,22 @@ GEM
       multi_json (~> 1.0)
       multi_xml (~> 0.5)
       rack (~> 1.2)
-    parallel (0.8.2)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
+    parallel (0.9.2)
+    pry (0.9.12.4)
+      coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.2)
-    rails_best_practices (1.14.3)
+    rails_best_practices (1.14.4)
       activesupport
       awesome_print
-      code_analyzer (>= 0.4.2)
+      code_analyzer (>= 0.4.3)
       colored
       erubis
       i18n
       require_all
       ruby-progressbar
-    rake (10.1.0)
+    rake (10.1.1)
     rb-fsevent (0.9.3)
     rb-inotify (0.9.1)
       ffi (>= 0.5.0)
@@ -141,12 +142,14 @@ GEM
     rdoc (4.0.1)
       json (~> 1.4)
     redcard (1.1.0)
-    reek (1.3.3)
-      ruby2ruby (~> 2.0.2)
-      ruby_parser (~> 3.1, >= 3.1.1)
+    reek (1.3.6)
+      ruby2ruby (~> 2.0.7)
+      ruby_parser (~> 3.2)
       sexp_processor
-    require_all (1.3.1)
-    roodi (3.1.1)
+    require_all (1.3.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    roodi (3.3.1)
       ruby_parser (~> 3.2, >= 3.2.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -156,24 +159,25 @@ GEM
     rspec-expectations (2.14.2)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.3)
-    ruby-progressbar (1.2.0)
-    ruby2ruby (2.0.6)
+    ruby-progressbar (1.4.0)
+    ruby2ruby (2.0.7)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
-    ruby_parser (3.2.2)
+    ruby_parser (3.3.0)
       sexp_processor (~> 4.1)
-    sexp_processor (4.3.0)
-    simplecov (0.7.1)
-      multi_json (~> 1.0)
-      simplecov-html (~> 0.7.1)
-    simplecov-html (0.7.1)
+    sexp_processor (4.4.1)
+    simplecov (0.8.2)
+      docile (~> 1.1.0)
+      multi_json
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
     simplecov-rcov-text (0.0.2)
-    slop (3.4.6)
+    slop (3.4.7)
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
-    tzinfo (0.3.37)
-    yard (0.8.7.1)
+    tzinfo (0.3.38)
+    yard (0.8.7.3)
 
 PLATFORMS
   ruby

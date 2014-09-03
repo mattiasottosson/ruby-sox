@@ -110,4 +110,15 @@ describe Sox::Cmd do
       sox.run
     end
   end
+
+  describe '#to_s' do
+    it 'should return string representation of the sox command to be run' do
+      sox.add_input('in.mp3')
+      sox.set_output('out.mp3', :bits => 16)
+      sox.set_options(:combine => :mix)
+      sox.set_effects(:norm => true, :rate => 16000)
+
+      sox.to_s.should == 'sox --combine mix in.mp3 --bits 16 out.mp3 norm rate 16000'
+    end
+  end
 end

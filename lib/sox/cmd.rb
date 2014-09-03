@@ -81,5 +81,12 @@ module Sox
       cmd = CommandBuilder.new(@inputs, @output, @options, @effects).build
       sh(cmd)
     end
+
+    # Returns the sox command that will be passed to shell.
+    #
+    # @return String
+    def to_s
+      CommandBuilder.new(@inputs, @output, @options, @effects).build
+    end
   end
 end

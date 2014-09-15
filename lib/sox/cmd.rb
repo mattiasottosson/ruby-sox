@@ -82,9 +82,9 @@ module Sox
       sh(cmd)
     end
 
-    # Returns the sox command that will be passed to shell.
+    # Return the sox command that will be passed to shell.
     #
-    # @return String
+    # @return [String]
     def to_s
       CommandBuilder.new(@inputs, @output, @options, @effects).build
     end

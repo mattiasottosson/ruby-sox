@@ -22,6 +22,7 @@ module Sox
     def write(output_file)
       inputs = @input_files.map { |file| build_input_file(file) }
       output = Sox::File.new(output_file)
+      output.options.merge!({ compression: @options[:compression]}) unless @options[:compression].nil?
 
       cmd = CommandBuilder.new(inputs, output, output_options, output_effects).build
       bash(cmd)
